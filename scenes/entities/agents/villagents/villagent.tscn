@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://c4rnal1l6tqt7"]
+
+[ext_resource type="Script" uid="uid://bn7l6laky6bmj" path="res://scripts/entities/agent/villagent.gd" id="1_711qk"]
+[ext_resource type="Script" uid="uid://dfb5coks7mdfx" path="res://scripts/entities/brain/base/blackboard.gd" id="2_5fhcm"]
+[ext_resource type="Script" uid="uid://l62iss1j822u" path="res://scripts/entities/brain/base/bt_root_node.gd" id="2_p3yqw"]
+[ext_resource type="Script" uid="uid://bvreg21bj52ar" path="res://scripts/entities/brain/base/bt_util_selector.gd" id="3_msjyj"]
+[ext_resource type="Script" uid="uid://duiwpr28l1r3v" path="res://scripts/entities/brain/base/bt_sequence.gd" id="4_yuxyi"]
+[ext_resource type="Script" uid="uid://cbspf0natk3ky" path="res://scripts/entities/brain/extends/hunger.gd" id="5_y7sty"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yhs1t"]
+radius = 5.0
+
+[node name="Villagent" type="CharacterBody2D" unique_id=823311392 groups=["Villagent"]]
+script = ExtResource("1_711qk")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=620809401]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1055440056]
+shape = SubResource("CircleShape2D_yhs1t")
+
+[node name="Blackboard" type="Node" parent="." unique_id=1799383195]
+script = ExtResource("2_5fhcm")
+metadata/_custom_type_script = "uid://dfb5coks7mdfx"
+
+[node name="BTRoot" type="Node" parent="." unique_id=1091447780 node_paths=PackedStringArray("actor", "blackboard")]
+script = ExtResource("2_p3yqw")
+actor = NodePath("..")
+blackboard = NodePath("../Blackboard")
+metadata/_custom_type_script = "uid://l62iss1j822u"
+
+[node name="Brain" type="Node" parent="BTRoot" unique_id=1366937598]
+script = ExtResource("3_msjyj")
+metadata/_custom_type_script = "uid://bvreg21bj52ar"
+
+[node name="BasicNeeds" type="Node" parent="BTRoot/Brain" unique_id=2102375247]
+script = ExtResource("3_msjyj")
+metadata/_custom_type_script = "uid://bvreg21bj52ar"
+
+[node name="Hunger" type="Node" parent="BTRoot/Brain/BasicNeeds" unique_id=838092925]
+script = ExtResource("5_y7sty")
+metadata/_custom_type_script = "uid://duiwpr28l1r3v"
+
+[node name="Works" type="Node" parent="BTRoot/Brain" unique_id=972321984]
+script = ExtResource("3_msjyj")
+metadata/_custom_type_script = "uid://bvreg21bj52ar"
+
+[node name="BTSequence" type="Node" parent="BTRoot/Brain/Works" unique_id=1017116063]
+script = ExtResource("4_yuxyi")
+metadata/_custom_type_script = "uid://duiwpr28l1r3v"
+
+[node name="BTUtilitySelector" type="Node" parent="BTRoot/Brain" unique_id=1839282500]
+script = ExtResource("3_msjyj")
+metadata/_custom_type_script = "uid://bvreg21bj52ar"

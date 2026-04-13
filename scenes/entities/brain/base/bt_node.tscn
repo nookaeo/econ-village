@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://corsjhe18i17n"]
+
+[ext_resource type="Script" uid="uid://d1akg1unfnynr" path="res://scripts/entities/brain/base/bt_node.gd" id="1_ogxte"]
+
+[node name="BTNode" type="Node" unique_id=626278842]
+script = ExtResource("1_ogxte")

@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="15.031185"
+   height="14.255203"
+   viewBox="0 0 15.031185 14.255203"
+   version="1.1"
+   id="svg1"
+   inkscape:export-filename="utility_selector.svg"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#505050"
+     inkscape:document-units="px"
+     showguides="false"
+     showgrid="true">
+    <inkscape:grid
+       id="grid4"
+       units="px"
+       originx="-0.48440766"
+       originy="-0.12607813"
+       spacingx="1"
+       spacingy="1"
+       empcolor="#0099e5"
+       empopacity="0.30196078"
+       color="#0099e5"
+       opacity="0.14901961"
+       empspacing="5"
+       enabled="true"
+       visible="true" />
+    <sodipodi:guide
+       position="-6.6053007,9.7629901"
+       orientation="1,0"
+       id="guide4"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="7.5155922,6.3812813"
+       orientation="0,-1"
+       id="guide5"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="7.5155922,5.3812813"
+       orientation="1,0"
+       id="guide6"
+       inkscape:locked="false" />
+    <inkscape:page
+       x="0"
+       y="0"
+       width="15.031185"
+       height="14.255203"
+       id="page2"
+       margin="0"
+       bleed="0" />
+  </sodipodi:namedview>
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-0.48440766,-0.12607813)">
+    <circle
+       style="fill:#00aa00;stroke-width:1.90438"
+       id="path1"
+       cx="7.979681"
+       cy="3.3838744"
+       r="3.2577963" />
+    <rect
+       style="fill:#00aa00;stroke-width:2.33616"
+       id="rect10"
+       width="1.0623697"
+       height="5.7981157"
+       x="7.4688153"
+       y="2.546778" />
+    <circle
+       style="fill:#00aa00;stroke-width:1.19646"
+       id="circle18"
+       cx="2.5311849"
+       cy="12.113534"
+       r="2.0467772" />
+    <rect
+       style="fill:#00aa00;stroke-width:3.36085"
+       id="rect19"
+       width="1.0623697"
+       height="12"
+       x="-9"
+       y="2"
+       transform="rotate(-90)" />
+    <rect
+       style="fill:#00aa00;stroke-width:1.85485"
+       id="rect20"
+       width="1.0623697"
+       height="3.6551065"
+       x="2"
+       y="8.3448935" />
+    <rect
+       style="fill:#00aa00;stroke-width:1.93787"
+       id="rect21"
+       width="1.0623697"
+       height="3.9896107"
+       x="7.4688148"
+       y="8.3448935" />
+    <rect
+       style="fill:#00aa00;stroke-width:1.93787"
+       id="rect22"
+       width="1.0623697"
+       height="3.9896107"
+       x="12.937631"
+       y="8.3448935" />
+    <circle
+       style="fill:#ffffff;stroke-width:1.04889"
+       id="circle22"
+       cx="7.979681"
+       cy="3.3838744"
+       r="1.7943279" />
+    <circle
+       style="fill:#00aa00;stroke-width:1.19646"
+       id="circle31"
+       cx="7.9999995"
+       cy="12.334504"
+       r="2.0467772" />
+    <circle
+       style="fill:#00aa00;stroke-width:1.19646"
+       id="circle32"
+       cx="13.468816"
+       cy="12.334504"
+       r="2.0467772" />
+    <circle
+       style="fill:#ffffff;stroke-width:0.565046"
+       id="circle33"
+       cx="2.5311849"
+       cy="12.113534"
+       r="0.96662164" />
+    <circle
+       style="fill:#ffffff;stroke-width:0.565046"
+       id="circle34"
+       cx="7.9999995"
+       cy="12.334504"
+       r="0.96662164" />
+    <circle
+       style="fill:#ffffff;stroke-width:0.565046"
+       id="circle35"
+       cx="13.468816"
+       cy="12.334504"
+       r="0.96662164" />
+  </g>
+</svg>

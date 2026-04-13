@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="SexChromosome" format=3 uid="uid://da8o8fsg1fobp"]
+
+[ext_resource type="Texture2D" uid="uid://c0sfig1e0stfn" path="res://assets/arts/characters/villagent_female.png" id="2_cbcnv"]
+[ext_resource type="Texture2D" uid="uid://0bc1qqt1gkg0" path="res://assets/arts/characters/villagent_female_kid.png" id="3_a5w62"]
+[ext_resource type="Script" uid="uid://e0ksit715d1f" path="res://scripts/entities/agent/genetics/chromosome_sex_data.gd" id="3_dd1x6"]
+
+[resource]
+script = ExtResource("3_dd1x6")
+chromosome_name = "default"
+kid_texture = ExtResource("3_a5w62")
+adult_texture = ExtResource("2_cbcnv")
+metadata/_custom_type_script = "uid://e0ksit715d1f"

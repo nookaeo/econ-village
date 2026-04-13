@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Genetics" format=3 uid="uid://casffq2vs6mmd"]
+
+[ext_resource type="Script" uid="uid://ctoucglmgwj13" path="res://scripts/entities/agent/genetics/genetics_data.gd" id="1_a51ut"]
+[ext_resource type="Resource" uid="uid://da8o8fsg1fobp" path="res://resources/agent/genetics/sex_chromosomes/x_chromosomes/x_default.tres" id="2_c36ag"]
+[ext_resource type="Resource" uid="uid://dyw8ph2s0dfxp" path="res://resources/agent/genetics/sex_chromosomes/y_chromosomes/y_default.tres" id="4_j08es"]
+[ext_resource type="Script" uid="uid://bialixmgiuda2" path="res://scripts/entities/agent/genetics/chromosomes_pair_data.gd" id="5_wlmfy"]
+
+[sub_resource type="Resource" id="Resource_ipu0u"]
+script = ExtResource("5_wlmfy")
+first = ExtResource("2_c36ag")
+second = ExtResource("4_j08es")
+metadata/_custom_type_script = "uid://bialixmgiuda2"
+
+[resource]
+script = ExtResource("1_a51ut")
+sex = SubResource("Resource_ipu0u")
+metadata/_custom_type_script = "uid://ctoucglmgwj13"

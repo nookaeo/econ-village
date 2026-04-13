@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="13.075767"
+   height="14.576254"
+   viewBox="0 0 13.075767 14.576254"
+   version="1.1"
+   id="svg1"
+   inkscape:export-filename="selector.svg"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#505050"
+     inkscape:document-units="px"
+     showguides="false"
+     showgrid="true">
+    <inkscape:grid
+       id="grid4"
+       units="px"
+       originx="0.028988836"
+       originy="0"
+       spacingx="1"
+       spacingy="1"
+       empcolor="#0099e5"
+       empopacity="0.30196078"
+       color="#0099e5"
+       opacity="0.14901961"
+       empspacing="5"
+       enabled="true"
+       visible="true" />
+    <sodipodi:guide
+       position="-6.0919044,9.9579631"
+       orientation="1,0"
+       id="guide4"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="8.028989,6.576254"
+       orientation="0,-1"
+       id="guide5"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="8.028989,5.576254"
+       orientation="1,0"
+       id="guide6"
+       inkscape:locked="false" />
+    <inkscape:page
+       x="0"
+       y="0"
+       width="13.075767"
+       height="14.576254"
+       id="page2"
+       margin="0"
+       bleed="0" />
+  </sodipodi:namedview>
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0.02898884)">
+    <circle
+       style="fill:#00aa00;stroke-width:1.90438"
+       id="path1"
+       cx="3.2288074"
+       cy="3.2577963"
+       r="3.2577963" />
+    <circle
+       style="fill:#00aa00;stroke-width:1.19646"
+       id="circle18"
+       cx="11"
+       cy="7.4688148"
+       r="2.0467772" />
+    <rect
+       style="fill:#00aa00;stroke-width:3.03267"
+       id="rect20"
+       width="1.0623697"
+       height="9.7707958"
+       x="2.6976225"
+       y="3.2898645" />
+    <rect
+       style="fill:#00aa00;stroke-width:2.71916"
+       id="rect35"
+       width="1.0623697"
+       height="7.8550673"
+       x="6.9376302"
+       y="-11.126408"
+       transform="rotate(90)" />
+    <rect
+       style="fill:#00aa00;stroke-width:2.71916"
+       id="rect36"
+       width="1.0623697"
+       height="7.8550673"
+       x="11.998291"
+       y="-11.126408"
+       transform="rotate(90)" />
+    <circle
+       style="fill:#00aa00;stroke-width:1.19646"
+       id="circle37"
+       cx="11"
+       cy="12.529476"
+       r="2.0467772" />
+  </g>
+</svg>

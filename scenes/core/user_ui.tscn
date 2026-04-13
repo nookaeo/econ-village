@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://cproe1k0iw1ux"]
+
+[node name="UserUI" type="CanvasLayer" unique_id=1642919888]
+
+[node name="MenuButton" type="Button" parent="." unique_id=1134610087]
+offset_left = 12.0
+offset_top = 810.0
+offset_right = 143.64516
+offset_bottom = 887.0
+text = "Menu
+"

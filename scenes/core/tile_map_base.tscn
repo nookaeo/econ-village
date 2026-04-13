@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dbv7x5s8dkfau"]
+
+[ext_resource type="Texture2D" uid="uid://dxfi0twq8dvu7" path="res://assets/arts/tilesets/basic_tile_set.png" id="1_o3cyr"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2s8g5"]
+texture = ExtResource("1_o3cyr")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_l8dlm"]
+sources/0 = SubResource("TileSetAtlasSource_2s8g5")
+
+[node name="TileMapBase" type="TileMapLayer" unique_id=505712130]
+tile_set = SubResource("TileSet_l8dlm")

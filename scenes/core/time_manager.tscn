@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://b1dfe2xg5f0mq"]
+
+[ext_resource type="Script" uid="uid://76l2n3y7lxa5" path="res://scripts/core/time_manager.gd" id="1_a8m1s"]
+[ext_resource type="Resource" uid="uid://g2266h8hcdh6" path="res://resources/core/world_setting_default.tres" id="2_cah4m"]
+
+[node name="TimeManager" type="Node" unique_id=1822956615]
+script = ExtResource("1_a8m1s")
+world_setting = ExtResource("2_cah4m")

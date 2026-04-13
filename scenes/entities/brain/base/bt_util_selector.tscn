@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://boqxw3dleyo13"]
+
+[ext_resource type="Script" uid="uid://bvreg21bj52ar" path="res://scripts/entities/brain/base/bt_util_selector.gd" id="1_76vbi"]
+
+[node name="BTUtilitySelector" type="Node" unique_id=824527708]
+script = ExtResource("1_76vbi")

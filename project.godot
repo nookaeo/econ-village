@@ -1,0 +1,58 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="econ-village"
+run/main_scene="uid://7t7thpmcru8u"
+config/features=PackedStringArray("4.6", "GL Compatibility")
+config/icon="uid://46oocawcr02m"
+
+[autoload]
+
+CoreSignal="*uid://hdf476qbtpyn"
+Math="*uid://vcav2t1dbxr8"
+MarketSignal="*uid://kgc6cg2k3m88"
+
+[debug]
+
+gdscript/warnings/unused_signal=0
+
+[display]
+
+window/size/viewport_width=1600
+window/size/viewport_height=900
+window/size/resizable=false
+window/size/borderless=true
+
+[file_customization]
+
+folder_colors={
+"res://assets/": "blue",
+"res://resources/": "yellow",
+"res://scenes/": "green",
+"res://scripts/": "red"
+}
+
+[global_group]
+
+Villagent="Villager agent the main character to this simulation"
+
+[physics]
+
+2d/default_gravity=0.0
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
+rendering_device/driver.windows="d3d12"
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+2d/snap/snap_2d_transforms_to_pixel=true

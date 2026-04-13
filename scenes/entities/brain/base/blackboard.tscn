@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://s0e4o7onn8bv"]
+
+[ext_resource type="Script" uid="uid://dfb5coks7mdfx" path="res://scripts/entities/brain/base/blackboard.gd" id="1_s2i65"]
+
+[node name="Blackboard" type="Node" unique_id=1855903224]
+script = ExtResource("1_s2i65")
