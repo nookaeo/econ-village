@@ -32,9 +32,14 @@ window/size/viewport_height=900
 window/size/resizable=false
 window/size/borderless=true
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/easy_charts/plugin.cfg")
+
 [file_customization]
 
 folder_colors={
+"res://addons/": "purple",
 "res://assets/": "blue",
 "res://resources/": "yellow",
 "res://scenes/": "green",
