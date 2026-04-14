@@ -19,7 +19,7 @@ var age :int = 0
 var strength :float = 0
 var active_energy :float = 0
 var passive_energy :float = 0
-#var
+
 
 var target_position :Vector2 = Vector2.ZERO
 var is_moving: bool = false
@@ -29,7 +29,11 @@ func _ready() -> void:
 	var current_tile := tile_map.local_to_map(global_position)
 	global_position = tile_map.map_to_local(current_tile)
 	stats_init()
+	CoreSignal.birth.emit(self, lifespan)
 	print(sex," lifespan:",lifespan," max_strength:",max_strength," max_active_energy:",max_active_energy," max_passive_energy:",max_passive_energy," energy_drain_rate:",energy_drain_rate," base_speed:",base_speed)
+	
+func _process(_delta: float) -> void:
+	pass
 	
 func _physics_process(delta :float) -> void:
 	if is_moving:
@@ -73,3 +77,9 @@ func _input(event) -> void:
 	if event is InputEventMouseButton and event.pressed:
 		var clicked_tile = tile_map.local_to_map(get_global_mouse_position())
 		move_to_grid(clicked_tile)
+		
+func die() -> void:
+	#Inherite properties here
+	#Drop items here
+ 
+	self.queue_free()
