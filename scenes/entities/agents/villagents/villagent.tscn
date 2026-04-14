@@ -2,22 +2,24 @@
 
 [ext_resource type="Script" uid="uid://bn7l6laky6bmj" path="res://scripts/entities/agent/villagent.gd" id="1_711qk"]
 [ext_resource type="Script" uid="uid://dfb5coks7mdfx" path="res://scripts/entities/brain/base/blackboard.gd" id="2_5fhcm"]
+[ext_resource type="Texture2D" uid="uid://wgwolovvh3qc" path="res://assets/arts/characters/villagent_base.png" id="2_hcufs"]
 [ext_resource type="Script" uid="uid://l62iss1j822u" path="res://scripts/entities/brain/base/bt_root_node.gd" id="2_p3yqw"]
 [ext_resource type="Script" uid="uid://bvreg21bj52ar" path="res://scripts/entities/brain/base/bt_util_selector.gd" id="3_msjyj"]
 [ext_resource type="Script" uid="uid://duiwpr28l1r3v" path="res://scripts/entities/brain/base/bt_sequence.gd" id="4_yuxyi"]
 [ext_resource type="Script" uid="uid://cbspf0natk3ky" path="res://scripts/entities/brain/extends/hunger.gd" id="5_y7sty"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yhs1t"]
-radius = 5.0
+radius = 8.0
 
 [node name="Villagent" type="CharacterBody2D" unique_id=823311392 groups=["Villagent"]]
 script = ExtResource("1_711qk")
 
-[node name="Sprite" type="Sprite2D" parent="." unique_id=620809401]
-unique_name_in_owner = true
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1055440056]
 shape = SubResource("CircleShape2D_yhs1t")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=620809401]
+unique_name_in_owner = true
+texture = ExtResource("2_hcufs")
 
 [node name="Blackboard" type="Node" parent="." unique_id=1799383195]
 script = ExtResource("2_5fhcm")
