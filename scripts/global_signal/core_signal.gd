@@ -1,3 +1,3 @@
 extends Node
-signal day
+signal day_pass
 signal birth (agent :Node, life_span)
