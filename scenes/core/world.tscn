@@ -32,16 +32,12 @@ sources/0 = SubResource("TileSetAtlasSource_n0cld")
 
 [node name="World" type="Node2D" unique_id=834159277]
 metadata/_edit_lock_ = true
-metadata/_edit_vertical_guides_ = [1920.0]
-metadata/_edit_horizontal_guides_ = [1080.0]
 
 [node name="CoreSystem" type="Node" parent="." unique_id=381962509]
 
-[node name="AgentSpawnHandler" parent="CoreSystem" unique_id=1010922202 instance=ExtResource("1_xbde7")]
-
 [node name="TimeManager" parent="CoreSystem" unique_id=1822956615 instance=ExtResource("1_mjfv0")]
 
-[node name="UserUI" parent="CoreSystem" unique_id=1642919888 instance=ExtResource("6_slgso")]
+[node name="AgentSpawnHandler" parent="CoreSystem" unique_id=1010922202 instance=ExtResource("1_xbde7")]
 
 [node name="TileMap" type="Node2D" parent="." unique_id=899536156]
 metadata/_edit_lock_ = true
@@ -52,15 +48,18 @@ tile_set = SubResource("TileSet_u0jth")
 metadata/_edit_lock_ = true
 
 [node name="MainCamera" type="Camera2D" parent="TileMap" unique_id=2016820056]
-position = Vector2(430, 731)
+position = Vector2(1295, 682)
 script = ExtResource("5_rquc4")
 
-[node name="Villagent" parent="." unique_id=823311392 node_paths=PackedStringArray("tile_map") instance=ExtResource("3_av6km")]
-position = Vector2(212, 572)
-tile_map = NodePath("../TileMap/Layer0")
-genetics = ExtResource("4_8pjs6")
+[node name="UserUI" parent="TileMap/MainCamera" unique_id=1642919888 instance=ExtResource("6_slgso")]
+visible = false
 
 [node name="Villagent2" parent="." unique_id=471914596 node_paths=PackedStringArray("tile_map") instance=ExtResource("3_av6km")]
-position = Vector2(292, 555)
+position = Vector2(1186, 531)
 tile_map = NodePath("../TileMap/Layer0")
 genetics = ExtResource("5_slgso")
+
+[node name="Villagent" parent="." unique_id=823311392 node_paths=PackedStringArray("tile_map") instance=ExtResource("3_av6km")]
+position = Vector2(999, 581)
+tile_map = NodePath("../TileMap/Layer0")
+genetics = ExtResource("4_8pjs6")
