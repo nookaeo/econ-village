@@ -4,4 +4,5 @@
 
 [resource]
 script = ExtResource("1_dpie4")
+villagent_spawn = 100
 metadata/_custom_type_script = "uid://dm2bw75mvkksh"
