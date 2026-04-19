@@ -40,6 +40,7 @@ metadata/_edit_lock_ = true
 [node name="TimeManager" parent="CoreSystem" unique_id=1822956615 instance=ExtResource("1_mjfv0")]
 
 [node name="AgentSpawnHandler" parent="CoreSystem" unique_id=1010922202 node_paths=PackedStringArray("tilemap", "agents_directory") instance=ExtResource("1_xbde7")]
+local_seed = 24
 tilemap = NodePath("../../TileMap/Layer0")
 agents_directory = NodePath("../../Agents")
 
