@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://be80x8is62dru"]
+
+[ext_resource type="Script" uid="uid://cviidxxkcprrn" path="res://scripts/entities/natural_resources/trees/natural_resource_base_script.gd" id="1_45g7s"]
+[ext_resource type="Texture2D" uid="uid://bgse7djo0fcjo" path="res://assets/arts/natural_resources/baisc_tree.png" id="1_pjk1t"]
+[ext_resource type="Resource" uid="uid://ddtvwqkiakdjo" path="res://resources/natural_resources/trees/basic_tree.tres" id="2_o58no"]
+
+[node name="BasicTree" type="Node2D" unique_id=329198679 groups=["BasicTree", "Trees"]]
+script = ExtResource("1_45g7s")
+natural_resource_data = ExtResource("2_o58no")
+
+[node name="Tree" type="Sprite2D" parent="." unique_id=1016064139]
+texture = ExtResource("1_pjk1t")
