@@ -1,5 +1,5 @@
 extends Node
-@export var local_seed :int = 0
+@export var local_seed :int = 100
 @export var tilemap :TileMapLayer
 @export var agents_directory :Node
 @onready var world_setting :WorldSetting = ($"../..").world_setting
