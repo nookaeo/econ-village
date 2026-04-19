@@ -1,9 +1,9 @@
 extends Resource
 class_name WorldSetting
 
-@export var world_seed :int = 0
+
 @export var time_scale :int = 1
-@export var time_simulation_day :int = 24 
+
 
 @export var villagent_spawn :int = 20
 
