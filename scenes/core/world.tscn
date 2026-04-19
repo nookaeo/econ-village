@@ -1,12 +1,12 @@
 [gd_scene format=4 uid="uid://7t7thpmcru8u"]
 
+[ext_resource type="Script" uid="uid://eshriiyfi2fx" path="res://scripts/core/world.gd" id="1_8c1c8"]
 [ext_resource type="PackedScene" uid="uid://b1dfe2xg5f0mq" path="res://scenes/core/time_manager.tscn" id="1_mjfv0"]
 [ext_resource type="PackedScene" uid="uid://c7w3db50pagyw" path="res://scenes/core/agent_spawn_handler.tscn" id="1_xbde7"]
 [ext_resource type="Texture2D" uid="uid://dxfi0twq8dvu7" path="res://assets/arts/tilesets/basic_tile_set.png" id="2_rtipq"]
-[ext_resource type="PackedScene" uid="uid://c4rnal1l6tqt7" path="res://scenes/entities/agents/villagents/villagent.tscn" id="3_av6km"]
-[ext_resource type="Resource" uid="uid://casffq2vs6mmd" path="res://resources/agent/genetics/males_type/male_default.tres" id="4_8pjs6"]
+[ext_resource type="Resource" uid="uid://g2266h8hcdh6" path="res://resources/core/world_setting_default.tres" id="2_vn8ag"]
+[ext_resource type="PackedScene" uid="uid://t6uk17q616bp" path="res://scenes/core/resources_spawner.tscn" id="5_epgnc"]
 [ext_resource type="Script" uid="uid://bg2fhbeoatbf" path="res://scripts/core/main_camera.gd" id="5_rquc4"]
-[ext_resource type="Resource" uid="uid://njilyuthbhws" path="res://resources/agent/genetics/females_type/female_default.tres" id="5_slgso"]
 [ext_resource type="PackedScene" uid="uid://cproe1k0iw1ux" path="res://scenes/core/user_ui.tscn" id="6_slgso"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n0cld"]
@@ -31,13 +31,19 @@ custom_data_layer_2/type = 1
 sources/0 = SubResource("TileSetAtlasSource_n0cld")
 
 [node name="World" type="Node2D" unique_id=834159277]
+script = ExtResource("1_8c1c8")
+world_setting = ExtResource("2_vn8ag")
 metadata/_edit_lock_ = true
 
 [node name="CoreSystem" type="Node" parent="." unique_id=381962509]
 
 [node name="TimeManager" parent="CoreSystem" unique_id=1822956615 instance=ExtResource("1_mjfv0")]
 
-[node name="AgentSpawnHandler" parent="CoreSystem" unique_id=1010922202 instance=ExtResource("1_xbde7")]
+[node name="AgentSpawnHandler" parent="CoreSystem" unique_id=1010922202 node_paths=PackedStringArray("tilemap", "agents_directory") instance=ExtResource("1_xbde7")]
+tilemap = NodePath("../../TileMap/Layer0")
+agents_directory = NodePath("../../Agents")
+
+[node name="ResourcesSpawner" parent="CoreSystem" unique_id=1826611326 instance=ExtResource("5_epgnc")]
 
 [node name="TileMap" type="Node2D" parent="." unique_id=899536156]
 metadata/_edit_lock_ = true
@@ -48,18 +54,12 @@ tile_set = SubResource("TileSet_u0jth")
 metadata/_edit_lock_ = true
 
 [node name="MainCamera" type="Camera2D" parent="TileMap" unique_id=2016820056]
-position = Vector2(1295, 682)
+position = Vector2(564, 973)
 script = ExtResource("5_rquc4")
 
 [node name="UserUI" parent="TileMap/MainCamera" unique_id=1642919888 instance=ExtResource("6_slgso")]
 visible = false
 
-[node name="Villagent2" parent="." unique_id=471914596 node_paths=PackedStringArray("tile_map") instance=ExtResource("3_av6km")]
-position = Vector2(1186, 531)
-tile_map = NodePath("../TileMap/Layer0")
-genetics = ExtResource("5_slgso")
+[node name="Agents" type="Node" parent="." unique_id=180911094]
 
-[node name="Villagent" parent="." unique_id=823311392 node_paths=PackedStringArray("tile_map") instance=ExtResource("3_av6km")]
-position = Vector2(999, 581)
-tile_map = NodePath("../TileMap/Layer0")
-genetics = ExtResource("4_8pjs6")
+[node name="Building" type="Node" parent="." unique_id=1418252768]
