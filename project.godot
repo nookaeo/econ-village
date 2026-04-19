@@ -20,6 +20,8 @@ config/icon="uid://46oocawcr02m"
 CoreSignal="*uid://hdf476qbtpyn"
 Math="*uid://vcav2t1dbxr8"
 MarketSignal="*uid://kgc6cg2k3m88"
+CoreVariable="*uid://dt33klg11lffw"
+ItemData="*uid://7rh4s3eirojn"
 
 [debug]
 
@@ -27,8 +29,8 @@ gdscript/warnings/unused_signal=0
 
 [display]
 
-window/size/viewport_width=960
-window/size/viewport_height=540
+window/size/viewport_width=1440
+window/size/viewport_height=810
 window/size/resizable=false
 window/size/borderless=true
 
@@ -49,6 +51,9 @@ folder_colors={
 [global_group]
 
 Villagent="Villager agent the main character to this simulation"
+Trees=""
+male=""
+female=""
 
 [physics]
 
