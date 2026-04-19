@@ -3,16 +3,32 @@
 [ext_resource type="Script" uid="uid://bn7l6laky6bmj" path="res://scripts/entities/agent/villagent.gd" id="1_711qk"]
 [ext_resource type="Script" uid="uid://dfb5coks7mdfx" path="res://scripts/entities/brain/base/blackboard.gd" id="2_5fhcm"]
 [ext_resource type="Texture2D" uid="uid://wgwolovvh3qc" path="res://assets/arts/characters/villagent_base.png" id="2_hcufs"]
+[ext_resource type="Script" uid="uid://ctoucglmgwj13" path="res://scripts/entities/agent/genetics/genetics_data.gd" id="2_jdcb1"]
 [ext_resource type="Script" uid="uid://l62iss1j822u" path="res://scripts/entities/brain/base/bt_root_node.gd" id="2_p3yqw"]
+[ext_resource type="Script" uid="uid://bialixmgiuda2" path="res://scripts/entities/agent/genetics/chromosomes_pair_data.gd" id="3_f116k"]
 [ext_resource type="Script" uid="uid://bvreg21bj52ar" path="res://scripts/entities/brain/base/bt_util_selector.gd" id="3_msjyj"]
 [ext_resource type="Script" uid="uid://duiwpr28l1r3v" path="res://scripts/entities/brain/base/bt_sequence.gd" id="4_yuxyi"]
 [ext_resource type="Script" uid="uid://cbspf0natk3ky" path="res://scripts/entities/brain/extends/hunger.gd" id="5_y7sty"]
 
+[sub_resource type="Resource" id="Resource_fshwj"]
+resource_local_to_scene = true
+script = ExtResource("3_f116k")
+metadata/_custom_type_script = "uid://bialixmgiuda2"
+
+[sub_resource type="Resource" id="Resource_givvw"]
+resource_local_to_scene = true
+script = ExtResource("2_jdcb1")
+sex = SubResource("Resource_fshwj")
+metadata/_custom_type_script = "uid://ctoucglmgwj13"
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_yhs1t"]
 radius = 8.0
 
-[node name="Villagent" type="CharacterBody2D" unique_id=823311392 groups=["Villagent"]]
+[node name="VillagentBase" type="CharacterBody2D" unique_id=823311392 groups=["Villagent"]]
+collision_layer = 0
+collision_mask = 0
 script = ExtResource("1_711qk")
+genetics = SubResource("Resource_givvw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1055440056]
 shape = SubResource("CircleShape2D_yhs1t")
