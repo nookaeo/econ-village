@@ -75,6 +75,7 @@ anchor_left = 0.013333334
 anchor_top = 0.012987013
 anchor_right = 0.9866667
 anchor_bottom = 0.068181805
+text = "Day: 0"
 label_settings = SubResource("LabelSettings_05dir")
 horizontal_alignment = 2
 metadata/_edit_use_anchors_ = true
