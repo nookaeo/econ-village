@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="NaturalResources" format=3 uid="uid://m32tcywr3epn"]
+
+[ext_resource type="Script" uid="uid://6ongvi1rrac1" path="res://scripts/entities/natural_resources/data/natural_reasouces.gd" id="1_psyig"]
+
+[resource]
+script = ExtResource("1_psyig")
+name = "BasicFish"
+item_id = 3
+drop_amount = 10
+gather_time = 4.0
+metadata/_custom_type_script = "uid://6ongvi1rrac1"

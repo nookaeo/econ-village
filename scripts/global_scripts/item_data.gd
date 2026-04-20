@@ -1,5 +1,5 @@
 extends Node
-enum ToolType {MULTIPURPOSE , AXE, PICAXE, HOE }
+enum ToolType {NONE, MULTIPURPOSE, AXE, PICAXE, HOE }
 
 var items = {
 	0: {
@@ -25,6 +25,7 @@ var items = {
 	"name": "stone axe",
 	"weight": 2.0,
 	"tool_type": ToolType.MULTIPURPOSE,
+	"craft_time": 8,
 	"tool_level": 0,
 	"durability": 10,  
 	"materials": {1:2,2:1},
@@ -32,9 +33,10 @@ var items = {
 	5: {
 	"name": "bronze axe",
 	"weight": 2.0,
-	"tool_type": ToolType.MULTIPURPOSE,
+	"tool_type": ToolType.AXE,
+	"craft_time": 8,
 	"tool_level": 1,
-	"durability": 10,  
+	"durability": 20,  
 	"materials": {1:2,2:1},
 	},
 }

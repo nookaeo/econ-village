@@ -4,8 +4,8 @@
 
 [resource]
 script = ExtResource("1_v11ro")
-name = "Basic Tree"
-tool_type = 1
+name = "BasicTree"
+tool_type = 2
 item_id = 1
 drop_amount = 20
 gather_time = 4.0

@@ -38,8 +38,8 @@ metadata/_edit_lock_ = true
 
 [node name="MainMenu" type="Panel" parent="Control" unique_id=286325812]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
+anchors_preset = -1
+anchor_right = 0.34302327
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -48,11 +48,14 @@ metadata/_edit_use_anchors_ = true
 metadata/_edit_lock_ = true
 
 [node name="Statistic" type="Panel" parent="Control/MainMenu" unique_id=1544545140]
-layout_mode = 0
-anchor_left = 0.0058139535
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.016666666
 anchor_top = 0.012658228
-anchor_right = 0.44186047
-anchor_bottom = 0.98734176
+anchor_right = 0.966
+anchor_bottom = 0.98700005
+offset_right = 5.297333
+offset_bottom = 0.21594238
 metadata/_edit_use_anchors_ = true
 
 [node name="Population" type="Label" parent="Control/MainMenu/Statistic" unique_id=1855475105]
@@ -60,22 +63,91 @@ unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.013333334
-anchor_top = 0.064935066
+anchor_top = 0.077922076
 anchor_right = 0.9866667
-anchor_bottom = 0.12012986
+anchor_bottom = 0.13311689
 text = "Population: all/male/female"
 label_settings = SubResource("LabelSettings_05dir")
 metadata/_edit_use_anchors_ = true
 
-[node name="Time" type="Label" parent="Control/MainMenu/Statistic" unique_id=135968730]
+[node name="Trees" type="Label" parent="Control/MainMenu/Statistic" unique_id=518750466]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.013333334
-anchor_top = 0.012987013
-anchor_right = 0.9866667
-anchor_bottom = 0.068181805
+anchor_left = 0.0003555552
+anchor_top = 0.14214033
+anchor_right = 0.97368884
+anchor_bottom = 0.19733512
+offset_left = 7.786667
+offset_top = 0.44155884
+offset_right = 7.786682
+offset_bottom = 0.44156647
+text = "Trees: 0"
+label_settings = SubResource("LabelSettings_05dir")
+metadata/_edit_use_anchors_ = true
+
+[node name="Stones" type="Label" parent="Control/MainMenu/Statistic" unique_id=818977989]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0003555552
+anchor_top = 0.20707539
+anchor_right = 0.97368884
+anchor_bottom = 0.26227018
+offset_left = 7.786667
+offset_top = 0.44155884
+offset_right = 7.786682
+offset_bottom = 0.44156647
+text = "Stones: 0"
+label_settings = SubResource("LabelSettings_05dir")
+metadata/_edit_use_anchors_ = true
+
+[node name="Fish" type="Label" parent="Control/MainMenu/Statistic" unique_id=2016144752]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0003555552
+anchor_top = 0.27201045
+anchor_right = 0.97368884
+anchor_bottom = 0.32720527
+offset_left = 7.786667
+offset_top = 0.44155884
+offset_right = 7.786682
+offset_bottom = 0.44155884
+text = "Fish: 0"
+label_settings = SubResource("LabelSettings_05dir")
+metadata/_edit_use_anchors_ = true
+
+[node name="Time" type="Label" parent="Control" unique_id=135968730]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.91300005
+anchor_top = 0.025
+anchor_right = 0.98300004
+anchor_bottom = 0.081
+offset_left = -0.28808594
+offset_top = 0.19999981
+offset_right = 0.61035156
+offset_bottom = -0.3088913
 text = "Day: 0"
+label_settings = SubResource("LabelSettings_05dir")
+horizontal_alignment = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="TimeSecond" type="Label" parent="Control" unique_id=465761236]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.91300005
+anchor_top = 0.076000005
+anchor_right = 0.98300004
+anchor_bottom = 0.13100001
+offset_left = -0.28808594
+offset_top = -0.032001495
+offset_right = 0.61035156
+offset_bottom = 0.09109497
+text = "0 s"
 label_settings = SubResource("LabelSettings_05dir")
 horizontal_alignment = 2
 metadata/_edit_use_anchors_ = true

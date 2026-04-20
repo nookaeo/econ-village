@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="NaturalResources" format=3 uid="uid://dy5ir3r42p6tn"]
+
+[ext_resource type="Script" uid="uid://6ongvi1rrac1" path="res://scripts/entities/natural_resources/data/natural_reasouces.gd" id="1_l51uh"]
+
+[resource]
+script = ExtResource("1_l51uh")
+name = "CowrieShell"
+drop_amount = 1
+gather_time = 0.1
+metadata/_custom_type_script = "uid://6ongvi1rrac1"

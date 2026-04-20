@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="NaturalResources" format=3 uid="uid://6poe2yfk27mi"]
+
+[ext_resource type="Script" uid="uid://6ongvi1rrac1" path="res://scripts/entities/natural_resources/data/natural_reasouces.gd" id="1_sdj86"]
+
+[resource]
+script = ExtResource("1_sdj86")
+name = "BasicStone"
+tool_type = 3
+item_id = 2
+drop_amount = 1
+gather_time = 4.0
+metadata/_custom_type_script = "uid://6ongvi1rrac1"
