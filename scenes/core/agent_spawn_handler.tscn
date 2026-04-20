@@ -4,4 +4,3 @@
 
 [node name="AgentSpawnHandler" type="Node" unique_id=1010922202]
 script = ExtResource("1_kgvyp")
-local_seed = 100

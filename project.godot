@@ -20,7 +20,7 @@ config/icon="uid://46oocawcr02m"
 CoreSignal="*uid://hdf476qbtpyn"
 Math="*uid://vcav2t1dbxr8"
 MarketSignal="*uid://kgc6cg2k3m88"
-CoreVariable="*uid://dt33klg11lffw"
+CoreConstant="*uid://dt33klg11lffw"
 ItemData="*uid://7rh4s3eirojn"
 
 [debug]
@@ -54,6 +54,8 @@ Villagent="Villager agent the main character to this simulation"
 Trees=""
 male=""
 female=""
+Stones=""
+Fish=""
 
 [physics]
 
