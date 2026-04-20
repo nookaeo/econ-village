@@ -3,10 +3,10 @@ class_name Villagent
 
 const rate :float = 1.0
 @onready var sprite :Sprite2D = %Sprite
-@onready var time_simulation_day :float = CoreVariable.time_simulation_day
+@onready var time_simulation_day :float = CoreConstant.time_simulation_day
 
 #Base variables
-@export var tile_map :TileMapLayer
+var tile_map :TileMapLayer
 @export var genetics :Genetics
 @export var passive_energy_multiplier :float = 10
 @export var energy_drain_multiplier :float = 0.5

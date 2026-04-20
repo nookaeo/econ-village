@@ -1,10 +1,10 @@
 extends Node
-@export var local_seed :int = 24
+@export var local_seed :int
 @export var tilemap :TileMapLayer
 @export var agents_directory :Node
 @onready var world_setting :WorldSetting = ($"../..").world_setting
 @onready var agent_spawn :int = world_setting.villagent_spawn
-var world_seed :int = CoreVariable.world_seed
+var world_seed :int = CoreConstant.world_seed
 var rng = RandomNumberGenerator.new()
 var agent_scene = preload("res://scenes/entities/agents/villagents/villagent_base.tscn")
 
