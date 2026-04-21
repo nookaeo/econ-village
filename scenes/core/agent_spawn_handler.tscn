@@ -2,5 +2,5 @@
 
 [ext_resource type="Script" uid="uid://d0g3yaqgm8xod" path="res://scripts/core/agent_spawn_handler.gd" id="1_kgvyp"]
 
-[node name="AgentSpawnHandler" type="Node" unique_id=1010922202]
+[node name="AgentSpawnManager" type="Node" unique_id=1010922202]
 script = ExtResource("1_kgvyp")
