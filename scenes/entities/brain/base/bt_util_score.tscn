@@ -1,6 +1,0 @@
-[gd_scene format=3 uid="uid://dgnibmf0w7rc"]
-
-[ext_resource type="Script" uid="uid://b3bx8nicea45a" path="res://scripts/entities/brain/base/bt_util_score.gd" id="1_h5p3g"]
-
-[node name="USC_" type="Node" unique_id=1858969190]
-script = ExtResource("1_h5p3g")
