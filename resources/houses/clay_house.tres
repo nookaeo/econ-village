@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="BaseHouseData" format=3 uid="uid://dkp1ackewma8v"]
+
+[ext_resource type="Script" uid="uid://bew2lotf8yict" path="res://scripts/entities/buildings/houses/data/base_house_data.gd" id="1_ydac0"]
+[ext_resource type="Texture2D" uid="uid://b5nux2ggh3ycf" path="res://assets/arts/buildings/houses/clay_house.png" id="2_homkb"]
+
+[resource]
+script = ExtResource("1_ydac0")
+house_name = "ClayHouse"
+texture = ExtResource("2_homkb")
+building_time = 24.0
+metadata/_custom_type_script = "uid://bew2lotf8yict"

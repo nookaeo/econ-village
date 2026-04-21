@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="BaseHouseData" format=3 uid="uid://j34pr7uiskld"]
+
+[ext_resource type="Script" uid="uid://bew2lotf8yict" path="res://scripts/entities/buildings/houses/data/base_house_data.gd" id="1_rnal0"]
+[ext_resource type="Texture2D" uid="uid://c5l5koqtgbfg8" path="res://assets/arts/buildings/houses/stone_house.png" id="2_acwwd"]
+
+[resource]
+script = ExtResource("1_rnal0")
+house_name = "StoneHouse"
+texture = ExtResource("2_acwwd")
+storage_size = 400.0
+building_time = 72.0
+capacity = 9
+metadata/_custom_type_script = "uid://bew2lotf8yict"

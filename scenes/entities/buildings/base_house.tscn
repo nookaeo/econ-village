@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://ctbbl7sajytok"]
+
+[ext_resource type="Script" uid="uid://6q8keht3ppxa" path="res://scripts/entities/buildings/houses/base_house.gd" id="1_u17db"]
+[ext_resource type="Texture2D" uid="uid://cj5h8u0hfjhyd" path="res://assets/arts/buildings/houses/site_house.png" id="2_p06uh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7j4ll"]
+radius = 5.0
+
+[node name="BaseHouse" type="Node2D" unique_id=1115710553]
+script = ExtResource("1_u17db")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=940657203]
+texture = ExtResource("2_p06uh")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1130412205]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1449363818]
+shape = SubResource("CircleShape2D_7j4ll")

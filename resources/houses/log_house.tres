@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="BaseHouseData" format=3 uid="uid://ddkxsvem52juc"]
+
+[ext_resource type="Script" uid="uid://bew2lotf8yict" path="res://scripts/entities/buildings/houses/data/base_house_data.gd" id="1_ta8sc"]
+[ext_resource type="Texture2D" uid="uid://b0vham1xvx3vf" path="res://assets/arts/buildings/houses/log_house.png" id="2_5jvni"]
+
+[resource]
+script = ExtResource("1_ta8sc")
+house_name = "LogHouse"
+texture = ExtResource("2_5jvni")
+storage_size = 200.0
+building_time = 48.0
+capacity = 7
+metadata/_custom_type_script = "uid://bew2lotf8yict"
