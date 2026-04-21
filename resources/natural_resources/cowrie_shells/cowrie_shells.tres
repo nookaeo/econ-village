@@ -5,6 +5,7 @@
 [resource]
 script = ExtResource("1_l51uh")
 name = "CowrieShell"
-drop_amount = 1
-gather_time = 0.1
+drop_amount = 10
+gather_time = 1.0
+gather_hardness = 10.0
 metadata/_custom_type_script = "uid://6ongvi1rrac1"

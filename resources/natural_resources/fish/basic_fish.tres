@@ -8,4 +8,5 @@ name = "BasicFish"
 item_id = 3
 drop_amount = 10
 gather_time = 4.0
+gather_hardness = 10.0
 metadata/_custom_type_script = "uid://6ongvi1rrac1"

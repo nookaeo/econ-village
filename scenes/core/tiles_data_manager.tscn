@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://ctjhp77rjy5fe"]
+
+[ext_resource type="Script" uid="uid://7q4kv8c1bg4a" path="res://scripts/core/tiles_data_manager.gd" id="1_meell"]
+
+[node name="TilesDataManager" type="Node" unique_id=358471650]
+script = ExtResource("1_meell")

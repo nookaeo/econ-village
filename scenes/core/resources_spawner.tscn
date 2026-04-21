@@ -2,5 +2,5 @@
 
 [ext_resource type="Script" uid="uid://dojwmnlfyy0j6" path="res://scripts/core/resources_spawner.gd" id="1_w03g1"]
 
-[node name="ResourcesSpawner" type="Node" unique_id=1826611326]
+[node name="ResourcesSpawnManager" type="Node" unique_id=1826611326]
 script = ExtResource("1_w03g1")

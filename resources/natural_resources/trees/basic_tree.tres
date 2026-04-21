@@ -9,4 +9,5 @@ tool_type = 2
 item_id = 1
 drop_amount = 20
 gather_time = 4.0
+gather_hardness = 10.0
 metadata/_custom_type_script = "uid://6ongvi1rrac1"
