@@ -8,8 +8,8 @@ const rate :float = 1.0
 #Base variables
 var tile_map :TileMapLayer
 @export var genetics :Genetics
-@export var passive_energy_multiplier :float = 10
-@export var energy_drain_multiplier :float = 0.5
+var passive_energy_multiplier :float = 10
+var energy_drain_multiplier :float = 0.5
 var sex :String
 var lifespan :int
 var kid_phase :float
@@ -29,13 +29,15 @@ var weight :float = 0.0
 var target_position :Vector2 = Vector2.ZERO
 var is_moving: bool = false
 #Item variables
-var inventory :Dictionary
+var inventory :Dictionary = {}
 var tools :Dictionary = {}
+
+var home :House
 
 #//////////////////////////////////////////////////////////////////////////////#
 
 func _ready() -> void:
-	var current_tile := tile_map.local_to_map(global_position)
+	var current_tile :Vector2i = tile_map.local_to_map(global_position)
 	global_position = tile_map.map_to_local(current_tile)
 	
 	CoreSignal.birth.emit(self, lifespan)
@@ -64,7 +66,7 @@ func _input(event) -> void:
 func _base_stats_init() -> void:
 	var status_average_index :float
 	var sum_strength_base :float = genetics.sex.first.strength_base + genetics.sex.second.strength_base
-	sum_sry_gene_power= genetics.sex.first.sry_gene_power + genetics.sex.second.sry_gene_power
+	sum_sry_gene_power = genetics.sex.first.sry_gene_power + genetics.sex.second.sry_gene_power
 	var base_lifespan :int = genetics.sex.first.lifespan + genetics.sex.second.lifespan
 	var base_kid_phase :int = genetics.sex.first.kid_phase + genetics.sex.second.kid_phase
 	
