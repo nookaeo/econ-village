@@ -57,10 +57,6 @@ func _physics_process(delta :float) -> void:
 		if global_position == target_position:
 			is_moving = false
 			
-func _input(event) -> void:
-	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_RIGHT:
-		var clicked_tile = tile_map.local_to_map(get_global_mouse_position())
-		_move_to_grid(clicked_tile)
 #///////////////////////////////////////////////////////////////////////////#
 
 func _base_stats_init() -> void:
@@ -133,8 +129,6 @@ func _drain_passive_energy(_delta :float) -> void:
 func set_energy() -> void:
 	passive_energy = max_passive_energy
 	active_energy = max_active_energy
-	
-	
 	
 	
 	
