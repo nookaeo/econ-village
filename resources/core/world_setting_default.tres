@@ -4,7 +4,9 @@
 
 [resource]
 script = ExtResource("1_dpie4")
-villagent_spawn = 1
-tree_spawn_rate = 50
+time_scale = 50
+villagent_spawn = 25
+cowrie_spawn_rate = 20
 stone_spawn_rate = 5
+fish_spawn_rate = 100
 metadata/_custom_type_script = "uid://dm2bw75mvkksh"
