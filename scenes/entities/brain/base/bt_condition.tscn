@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://pa8ybyxow1y2"]
+
+[ext_resource type="Script" uid="uid://cty74qyl5k50x" path="res://scripts/entities/brain/base/bt_condition.gd" id="1_0ww85"]
+
+[node name="BTCondition" type="Node" unique_id=140893797]
+script = ExtResource("1_0ww85")
