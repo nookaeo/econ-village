@@ -4,17 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://b0ie4rqd5yak6" path="res://assets/arts/natural_resources/fish.png" id="2_ebloy"]
 [ext_resource type="Resource" uid="uid://m32tcywr3epn" path="res://resources/natural_resources/fish/basic_fish.tres" id="2_idrrc"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_o58no"]
-radius = 5.0
-
-[node name="BasicFish" type="Node2D" unique_id=329198679 groups=["Fish"]]
+[node name="BasicFish" type="Node2D" unique_id=329198679 groups=["Entities", "Fish"]]
 script = ExtResource("1_24cke")
 natural_resource_data = ExtResource("2_idrrc")
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=1016064139]
 texture = ExtResource("2_ebloy")
-
-[node name="Area2D" type="Area2D" parent="." unique_id=1114455427]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=197028613]
-shape = SubResource("CircleShape2D_o58no")
