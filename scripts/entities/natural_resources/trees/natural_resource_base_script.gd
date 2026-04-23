@@ -17,8 +17,9 @@ func _process(_delta: float) -> void:
 
 func gather() -> bool:
 	var delta = get_physics_process_delta_time()
-	gather_progress += 1.0 * delta
-	gatherer.active_energy -= natural_resource_data.gather_hardness * delta
+	var strength_rate :float = gatherer.strength / 100.0
+	gather_progress +=  strength_rate * delta
+	gatherer.active_energy -=  strength_rate * natural_resource_data.gather_hardness * delta
 	if gather_progress < natural_resource_data.gather_time:
 		return false
 	if drop_amount == 0 :
