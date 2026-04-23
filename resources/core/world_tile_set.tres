@@ -1,0 +1,31 @@
+[gd_resource type="TileSet" format=3 uid="uid://cxn57gl1kgyrp"]
+
+[ext_resource type="Texture2D" uid="uid://dxfi0twq8dvu7" path="res://assets/arts/tilesets/basic_tile_set.png" id="1_24a2v"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n0cld"]
+texture = ExtResource("1_24a2v")
+3:0/0 = 0
+2:0/0 = 0
+1:0/0 = 0
+1:0/0/custom_data_1 = true
+0:0/0 = 0
+0:0/0/custom_data_0 = true
+0:1/0 = 0
+0:1/0/custom_data_2 = true
+1:1/0 = 0
+1:1/0/custom_data_3 = true
+2:1/0 = 0
+2:1/0/custom_data_4 = true
+
+[resource]
+custom_data_layer_0/name = "grass"
+custom_data_layer_0/type = 1
+custom_data_layer_1/name = "dirt"
+custom_data_layer_1/type = 1
+custom_data_layer_2/name = "sand"
+custom_data_layer_2/type = 1
+custom_data_layer_3/name = "stone"
+custom_data_layer_3/type = 1
+custom_data_layer_4/name = "water"
+custom_data_layer_4/type = 1
+sources/0 = SubResource("TileSetAtlasSource_n0cld")

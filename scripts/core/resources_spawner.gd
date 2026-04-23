@@ -27,13 +27,14 @@ func _resources_spawn() -> void:
 	
 func _resource_spawn(scene ,spawn_rate :int,biome :String):
 	var placable_tiles :Array  = get_placable_tiles(biome)
-	if placable_tiles.size() <= 0 or placable_tiles.size() < int(TilesManager.tiles[biome].size() * crowd_rate) :
+	if placable_tiles.size() <= 0 or placable_tiles.size() < int(TilesManager.tiles[biome].size() * (1.0 - crowd_rate)) :
 		return
 	for i in range(min(spawn_rate,placable_tiles.size())):
 		var resource :NaturalResource = scene.instantiate()
 		resource.tile_map = tilemap
 		resource.biome = biome
 		natural_resources_directory.add_child(resource)
+		NatResourceManager.register_resource(resource)
 		_place_entity(resource,placable_tiles,biome)
 		
 	
