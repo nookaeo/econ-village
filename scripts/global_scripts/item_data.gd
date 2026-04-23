@@ -19,7 +19,7 @@ var items = {
 	3: {
 	"name": "fish",
 	"weight": 0.5,
-	"energy": 20
+	"energy": 20.0
 	},
 	4: {
 	"name": "stone axe",
