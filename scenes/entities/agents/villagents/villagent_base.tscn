@@ -8,14 +8,23 @@
 [ext_resource type="Script" uid="uid://bialixmgiuda2" path="res://scripts/entities/agent/genetics/chromosomes_pair_data.gd" id="3_f116k"]
 [ext_resource type="Script" uid="uid://bvreg21bj52ar" path="res://scripts/entities/brain/base/bt_util_selector.gd" id="3_msjyj"]
 [ext_resource type="Script" uid="uid://cbspf0natk3ky" path="res://scripts/entities/brain/extends/hunger.gd" id="5_y7sty"]
+[ext_resource type="Script" uid="uid://7qgcidu852cw" path="res://scripts/entities/brain/extends/brain.gd" id="7_xjj7s"]
 [ext_resource type="Script" uid="uid://cnxtg2gls613j" path="res://scripts/entities/brain/extends/fishing.gd" id="9_fshwj"]
-[ext_resource type="Script" uid="uid://duiwpr28l1r3v" path="res://scripts/entities/brain/base/bt_sequence.gd" id="9_givvw"]
 [ext_resource type="Script" uid="uid://dbt0sdof07gt4" path="res://scripts/entities/brain/extends/consume_food.gd" id="9_s62pf"]
 [ext_resource type="Script" uid="uid://cdplxdf14h473" path="res://scripts/entities/brain/extends/find_fish.gd" id="10_fshwj"]
 [ext_resource type="Script" uid="uid://5lamu5qxqgei" path="res://scripts/entities/brain/extends/rest.gd" id="10_s62pf"]
 [ext_resource type="Script" uid="uid://cpfrcph826kv6" path="res://scripts/entities/brain/extends/go_to_fish.gd" id="11_givvw"]
 [ext_resource type="Script" uid="uid://bfst6yr6doxyn" path="res://scripts/entities/brain/extends/sleep.gd" id="11_hj8gw"]
+[ext_resource type="Script" uid="uid://dbl54nf24vug0" path="res://scripts/entities/brain/extends/go_to_home.gd" id="11_ifqoa"]
+[ext_resource type="Script" uid="uid://cnrbjm5qrgp5i" path="res://scripts/entities/brain/extends/home.gd" id="13_1we3c"]
+[ext_resource type="Script" uid="uid://dw2d0q47i54ca" path="res://scripts/entities/brain/extends/create_site.gd" id="13_6siub"]
+[ext_resource type="Script" uid="uid://duiwpr28l1r3v" path="res://scripts/entities/brain/base/bt_sequence.gd" id="13_58vak"]
 [ext_resource type="Script" uid="uid://dnfrwg88vbprg" path="res://scripts/entities/brain/extends/catch_fish.gd" id="13_jevfg"]
+[ext_resource type="Script" uid="uid://dnnp52lns6dlj" path="res://scripts/entities/brain/extends/create_house.gd" id="14_ifqoa"]
+[ext_resource type="Script" uid="uid://7mtv4m1aemt5" path="res://scripts/entities/brain/extends/is_male.gd" id="15_1we3c"]
+[ext_resource type="Script" uid="uid://ctvonk4pt8oak" path="res://scripts/entities/brain/extends/find_house.gd" id="16_evbud"]
+[ext_resource type="Script" uid="uid://cl3r6c2guy7h5" path="res://scripts/entities/brain/extends/storing_item.gd" id="19_73i3h"]
+[ext_resource type="Script" uid="uid://5h6tm3uksnvi" path="res://scripts/entities/brain/extends/store_item.gd" id="21_xjj7s"]
 
 [sub_resource type="Resource" id="Resource_fshwj"]
 resource_local_to_scene = true
@@ -55,7 +64,7 @@ blackboard = NodePath("../Blackboard")
 metadata/_custom_type_script = "uid://l62iss1j822u"
 
 [node name="Brain" type="Node" parent="BTRoot" unique_id=1366937598]
-script = ExtResource("3_msjyj")
+script = ExtResource("7_xjj7s")
 metadata/_custom_type_script = "uid://bvreg21bj52ar"
 
 [node name="BasicNeeds" type="Node" parent="BTRoot/Brain" unique_id=2102375247]
@@ -66,6 +75,10 @@ metadata/_custom_type_script = "uid://bvreg21bj52ar"
 script = ExtResource("5_y7sty")
 metadata/_custom_type_script = "uid://duiwpr28l1r3v"
 
+[node name="GoToHome" type="Node" parent="BTRoot/Brain/BasicNeeds/Hunger" unique_id=395454274]
+script = ExtResource("11_ifqoa")
+metadata/_custom_type_script = "uid://cxylud6lossbd"
+
 [node name="ConsumeFish" type="Node" parent="BTRoot/Brain/BasicNeeds/Hunger" unique_id=1720782565]
 script = ExtResource("9_s62pf")
 metadata/_custom_type_script = "uid://cxylud6lossbd"
@@ -74,17 +87,57 @@ metadata/_custom_type_script = "uid://cxylud6lossbd"
 script = ExtResource("10_s62pf")
 metadata/_custom_type_script = "uid://duiwpr28l1r3v"
 
+[node name="GoToHome" type="Node" parent="BTRoot/Brain/BasicNeeds/Rest" unique_id=344024079]
+script = ExtResource("11_ifqoa")
+metadata/_custom_type_script = "uid://cxylud6lossbd"
+
 [node name="Sleep" type="Node" parent="BTRoot/Brain/BasicNeeds/Rest" unique_id=1167862780]
 script = ExtResource("11_hj8gw")
 metadata/_custom_type_script = "uid://cxylud6lossbd"
 
-[node name="BTSequence" type="Node" parent="BTRoot/Brain/BasicNeeds" unique_id=1550647507]
-script = ExtResource("9_givvw")
+[node name="Home" type="Node" parent="BTRoot/Brain/BasicNeeds" unique_id=1700203235]
+script = ExtResource("13_1we3c")
+metadata/_custom_type_script = "uid://0v6y8hl1enlm"
+
+[node name="FindHome" type="Node" parent="BTRoot/Brain/BasicNeeds/Home" unique_id=1212110707]
+script = ExtResource("13_58vak")
 metadata/_custom_type_script = "uid://duiwpr28l1r3v"
+
+[node name="IsMale" type="Node" parent="BTRoot/Brain/BasicNeeds/Home/FindHome" unique_id=1146104652]
+script = ExtResource("15_1we3c")
+metadata/_custom_type_script = "uid://cty74qyl5k50x"
+
+[node name="FindHouse" type="Node" parent="BTRoot/Brain/BasicNeeds/Home/FindHome" unique_id=42991215]
+script = ExtResource("16_evbud")
+metadata/_custom_type_script = "uid://cxylud6lossbd"
+
+[node name="CreateHouse" type="Node" parent="BTRoot/Brain/BasicNeeds/Home" unique_id=1550647507]
+script = ExtResource("13_58vak")
+metadata/_custom_type_script = "uid://duiwpr28l1r3v"
+
+[node name="CreateSite" type="Node" parent="BTRoot/Brain/BasicNeeds/Home/CreateHouse" unique_id=465411895]
+script = ExtResource("13_6siub")
+metadata/_custom_type_script = "uid://cxylud6lossbd"
+
+[node name="CreateHouse" type="Node" parent="BTRoot/Brain/BasicNeeds/Home/CreateHouse" unique_id=1067595933]
+script = ExtResource("14_ifqoa")
+metadata/_custom_type_script = "uid://cxylud6lossbd"
 
 [node name="Works" type="Node" parent="BTRoot/Brain" unique_id=972321984]
 script = ExtResource("3_msjyj")
 metadata/_custom_type_script = "uid://bvreg21bj52ar"
+
+[node name="StoringItem" type="Node" parent="BTRoot/Brain/Works" unique_id=299631353]
+script = ExtResource("19_73i3h")
+metadata/_custom_type_script = "uid://duiwpr28l1r3v"
+
+[node name="GoToHome" type="Node" parent="BTRoot/Brain/Works/StoringItem" unique_id=681754597]
+script = ExtResource("11_ifqoa")
+metadata/_custom_type_script = "uid://cxylud6lossbd"
+
+[node name="StoreItem" type="Node" parent="BTRoot/Brain/Works/StoringItem" unique_id=1692842863]
+script = ExtResource("21_xjj7s")
+metadata/_custom_type_script = "uid://cxylud6lossbd"
 
 [node name="Fishing" type="Node" parent="BTRoot/Brain/Works" unique_id=1017116063]
 script = ExtResource("9_fshwj")

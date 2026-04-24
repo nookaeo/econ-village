@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ctmfexfxax5le"]
 
-[ext_resource type="Script" uid="uid://cviidxxkcprrn" path="res://scripts/entities/natural_resources/trees/natural_resource_base_script.gd" id="1_tvni3"]
+[ext_resource type="Script" uid="uid://cviidxxkcprrn" path="res://scripts/entities/natural_resources/data/natural_resource_base_script.gd" id="1_tvni3"]
 [ext_resource type="Resource" uid="uid://dy5ir3r42p6tn" path="res://resources/natural_resources/cowrie_shells/cowrie_shells.tres" id="2_evd8e"]
 [ext_resource type="Texture2D" uid="uid://pjwsq4tjj24k" path="res://assets/arts/natural_resources/cowrie_shells.png" id="3_fv417"]
 
