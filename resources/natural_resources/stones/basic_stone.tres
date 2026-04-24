@@ -6,7 +6,7 @@
 script = ExtResource("1_sdj86")
 name = "Stone"
 tool_type = 3
-item_id = 2
+item_name = 2
 drop_amount = 1
 gather_time = 8.0
 gather_hardness = 10.0

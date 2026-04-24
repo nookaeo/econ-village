@@ -1,11 +1,8 @@
 [gd_scene format=3 uid="uid://yauvm26p0xxq"]
 
-[ext_resource type="Script" uid="uid://cviidxxkcprrn" path="res://scripts/entities/natural_resources/trees/natural_resource_base_script.gd" id="1_dugm1"]
+[ext_resource type="Script" uid="uid://cviidxxkcprrn" path="res://scripts/entities/natural_resources/data/natural_resource_base_script.gd" id="1_dugm1"]
 [ext_resource type="Texture2D" uid="uid://b2u5cbuper5b2" path="res://assets/arts/natural_resources/basic_stone.png" id="2_6e7wr"]
 [ext_resource type="Resource" uid="uid://6poe2yfk27mi" path="res://resources/natural_resources/stones/basic_stone.tres" id="2_knwy2"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_o58no"]
-radius = 5.0
 
 [node name="BasicStone" type="Node2D" unique_id=329198679 groups=["Stones"]]
 script = ExtResource("1_dugm1")
@@ -13,8 +10,3 @@ natural_resource_data = ExtResource("2_knwy2")
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=1016064139]
 texture = ExtResource("2_6e7wr")
-
-[node name="Area2D" type="Area2D" parent="." unique_id=1114455427]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=197028613]
-shape = SubResource("CircleShape2D_o58no")

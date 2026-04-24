@@ -1,42 +1,43 @@
 extends Node
 enum ToolType {NONE, MULTIPURPOSE, AXE, PICAXE, HOE }
+enum ItemName {Shells,Wood,Stone,Fish,StoneAxe,BronzeAxe}
 
 var items = {
-	0: {
+	ItemName.Shells: {
 	"name": "cowrie shell",
 	"weight": 0,
 	},
-	1: {
+	ItemName.Wood: {
 	"name": "wood",
 	"weight": 1.0,
 	
 	},
-	2: {
+	ItemName.Stone: {
 	"name": "stone",
 	"weight": 2.0,
 	
 	},
-	3: {
+	ItemName.Fish: {
 	"name": "fish",
 	"weight": 0.5,
 	"energy": 20.0
 	},
-	4: {
+	ItemName.StoneAxe: {
 	"name": "stone axe",
 	"weight": 2.0,
 	"tool_type": ToolType.MULTIPURPOSE,
 	"craft_time": 8,
 	"tool_level": 0,
 	"durability": 10,  
-	"materials": {1:2,2:1},
+	"materials": {ItemName.Wood:2,ItemName.Stone:1},
 	},
-	5: {
+	ItemName.BronzeAxe: {
 	"name": "bronze axe",
 	"weight": 2.0,
 	"tool_type": ToolType.AXE,
 	"craft_time": 8,
 	"tool_level": 1,
 	"durability": 20,  
-	"materials": {1:2,2:1},
+	"materials": {ItemName.Wood:2,ItemName.Stone:1},
 	},
 }

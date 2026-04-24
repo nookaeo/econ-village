@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://codayk53mc3mn"]
 
-[ext_resource type="Script" uid="uid://cviidxxkcprrn" path="res://scripts/entities/natural_resources/trees/natural_resource_base_script.gd" id="1_24cke"]
+[ext_resource type="Script" uid="uid://cviidxxkcprrn" path="res://scripts/entities/natural_resources/data/natural_resource_base_script.gd" id="1_24cke"]
 [ext_resource type="Texture2D" uid="uid://b0ie4rqd5yak6" path="res://assets/arts/natural_resources/fish.png" id="2_ebloy"]
 [ext_resource type="Resource" uid="uid://m32tcywr3epn" path="res://resources/natural_resources/fish/basic_fish.tres" id="2_idrrc"]
 
