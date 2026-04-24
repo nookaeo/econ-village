@@ -1,6 +1,7 @@
 @icon("res://assets/arts/icons/selector.svg")
-extends BTNode
 class_name BTSelector
+extends BTNode
+
 
 
 var current_child_index :int = 0
