@@ -8,7 +8,7 @@ extends Camera2D
 func _unhandled_input(event: InputEvent) -> void:
 	# --- PANNING (Middle Mouse Button) ---
 	if event is InputEventMouseMotion:
-		if event.button_mask & MOUSE_BUTTON_MASK_MIDDLE:
+		if event.button_mask & MOUSE_BUTTON_MASK_LEFT:
 			# Subtract relative motion to "pull" the world
 			position -= event.relative * (1.0 / zoom.x) * drag_sensitivity
 
