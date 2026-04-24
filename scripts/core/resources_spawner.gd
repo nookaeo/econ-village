@@ -11,15 +11,15 @@ var trees_scene = preload("res://scenes/entities/natural_resources/basic_tree.ts
 var fish_scene = preload("res://scenes/entities/natural_resources/basic_fish.tscn")
 var cowrie_shell_scene = preload("res://scenes/entities/natural_resources/cowrie_shell.tscn")
 var basic_stone_scene = preload("res://scenes/entities/natural_resources/basic_stone.tscn")
-
+var day_pass :int = 0
 #////////////////////////////////////////////////////////////////////////
 func _ready() -> void:
 	rng.seed = world_seed + local_seed
 	_resources_spawn()
 	CoreSignal.day_pass.connect(_resources_spawn)
-	
 #////////////////////////////////////////////////////////////////////////
 func _resources_spawn() -> void:
+	day_pass += 1
 	_resource_spawn(trees_scene, world_setting.tree_spawn_rate,"dirt")
 	_resource_spawn(fish_scene, world_setting.fish_spawn_rate,"water")
 	_resource_spawn(cowrie_shell_scene, world_setting.cowrie_spawn_rate,"sand")
