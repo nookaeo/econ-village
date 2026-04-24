@@ -1,6 +1,6 @@
 extends Node
 
-var bucket_size = 160
+var bucket_size = 320
 var grid = {}
 
 func register_resource(node :Node2D):
