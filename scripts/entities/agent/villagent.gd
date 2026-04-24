@@ -24,6 +24,7 @@ var active_energy :float = 0.0
 var passive_energy :float = 0.0
 var energy_drain_rate :float = 0.0
 var base_speed :float = 0.0
+var weight_handle :float = 0.0
 var weight :float = 0.0
 
 var target_position :Vector2 = Vector2.ZERO
@@ -32,7 +33,8 @@ var is_moving: bool = false
 var inventory :Dictionary = {}
 var tools :Dictionary = {}
 
-var home :House
+var home :House = null
+var partner :Villagent = null
 
 #//////////////////////////////////////////////////////////////////////////////#
 
@@ -89,17 +91,12 @@ func _stats_calculate() -> void:
 	base_speed = floorf(clamp(floorf(500 - ((strength - 200) ** 2) / 90),0,500))
 	max_active_energy = strength
 	max_passive_energy = floorf(strength * passive_energy_multiplier)
-
+	weight_handle = floorf(strength / 4.0)
 func _move_to_grid(tile_coords :Vector2i) -> void:
 	target_position = tile_map.map_to_local(tile_coords)
 	is_moving = true
 	
 
-		
-func die() -> void:
-	#Inherite properties here
-	#Drop items here
-	self.queue_free()
 	
 func _aging() -> void:
 	age += 1
@@ -125,6 +122,39 @@ func _drain_passive_energy(_delta :float) -> void:
 		passive_energy -= enrgy_drain
 	else :
 		die()
+		
+func calculate_weight() -> void:
+	weight = 0
+	if inventory.size() <= 0 :
+		return
+	for item in inventory:
+		weight += inventory[item] * ItemData.items[item]["weight"]
+		
+func add_item(item_name :ItemData.ItemName,amount :int) -> void:
+	if not inventory.has(item_name):
+		inventory[item_name] = 0
+	inventory[item_name] += amount
+	calculate_weight()
+	
+func store_item_to_home() -> void:
+	if home == null:
+		return
+	if home.house_level < 1:
+		return
+	if inventory.size() < 1:
+		return
+	for item in inventory:
+		if not home.house_storage.has(item):
+			home.house_storage[item] = 0
+		home.house_storage[item] += inventory[item]
+	inventory.clear()
+	calculate_weight()
+	home.calculate_weight()
+	return
+func die() -> void:
+	#Inherite properties here
+	#Drop items here
+	self.queue_free()
 	
 func set_energy() -> void:
 	passive_energy = max_passive_energy

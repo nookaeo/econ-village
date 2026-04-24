@@ -1,10 +1,17 @@
 [gd_scene format=3 uid="uid://ctbbl7sajytok"]
 
 [ext_resource type="Script" uid="uid://6q8keht3ppxa" path="res://scripts/entities/buildings/houses/base_house.gd" id="1_u17db"]
+[ext_resource type="Resource" uid="uid://dkp1ackewma8v" path="res://resources/houses/clay_house.tres" id="2_aflnk"]
 [ext_resource type="Texture2D" uid="uid://cj5h8u0hfjhyd" path="res://assets/arts/buildings/houses/site_house.png" id="2_p06uh"]
+[ext_resource type="Resource" uid="uid://ddkxsvem52juc" path="res://resources/houses/log_house.tres" id="3_wdigm"]
+[ext_resource type="Resource" uid="uid://j34pr7uiskld" path="res://resources/houses/stone_house.tres" id="4_t13qj"]
 
 [node name="BaseHouse" type="Node2D" unique_id=1115710553]
 script = ExtResource("1_u17db")
+house_level_1 = ExtResource("2_aflnk")
+house_level_2 = ExtResource("3_wdigm")
+house_level_3 = ExtResource("4_t13qj")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=940657203]
+unique_name_in_owner = true
 texture = ExtResource("2_p06uh")

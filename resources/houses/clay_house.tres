@@ -7,5 +7,10 @@
 script = ExtResource("1_ydac0")
 house_name = "ClayHouse"
 texture = ExtResource("2_homkb")
-building_time = 24.0
+level = 1
+storage_size = 1000.0
+building_time = 8.0
+house_maintainance = {
+1: 5
+}
 metadata/_custom_type_script = "uid://bew2lotf8yict"

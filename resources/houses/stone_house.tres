@@ -7,7 +7,12 @@
 script = ExtResource("1_rnal0")
 house_name = "StoneHouse"
 texture = ExtResource("2_acwwd")
+level = 3
 storage_size = 400.0
 building_time = 72.0
 capacity = 9
+house_maintainance = {
+1: 10,
+2: 5
+}
 metadata/_custom_type_script = "uid://bew2lotf8yict"
