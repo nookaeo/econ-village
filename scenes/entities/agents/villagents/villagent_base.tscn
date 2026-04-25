@@ -24,6 +24,7 @@
 [ext_resource type="Script" uid="uid://7mtv4m1aemt5" path="res://scripts/entities/brain/extends/is_male.gd" id="15_1we3c"]
 [ext_resource type="Script" uid="uid://ctvonk4pt8oak" path="res://scripts/entities/brain/extends/find_house.gd" id="16_evbud"]
 [ext_resource type="Script" uid="uid://cl3r6c2guy7h5" path="res://scripts/entities/brain/extends/storing_item.gd" id="19_73i3h"]
+[ext_resource type="Script" uid="uid://616tgyu08ekr" path="res://scripts/entities/brain/extends/works.gd" id="21_m1c23"]
 [ext_resource type="Script" uid="uid://5h6tm3uksnvi" path="res://scripts/entities/brain/extends/store_item.gd" id="21_xjj7s"]
 
 [sub_resource type="Resource" id="Resource_fshwj"]
@@ -91,6 +92,10 @@ metadata/_custom_type_script = "uid://duiwpr28l1r3v"
 script = ExtResource("11_ifqoa")
 metadata/_custom_type_script = "uid://cxylud6lossbd"
 
+[node name="StoreItem" type="Node" parent="BTRoot/Brain/BasicNeeds/Rest" unique_id=1814129086]
+script = ExtResource("21_xjj7s")
+metadata/_custom_type_script = "uid://cxylud6lossbd"
+
 [node name="Sleep" type="Node" parent="BTRoot/Brain/BasicNeeds/Rest" unique_id=1167862780]
 script = ExtResource("11_hj8gw")
 metadata/_custom_type_script = "uid://cxylud6lossbd"
@@ -123,8 +128,12 @@ metadata/_custom_type_script = "uid://cxylud6lossbd"
 script = ExtResource("14_ifqoa")
 metadata/_custom_type_script = "uid://cxylud6lossbd"
 
-[node name="Works" type="Node" parent="BTRoot/Brain" unique_id=972321984]
+[node name="SellResourcesMargin" type="Node" parent="BTRoot/Brain" unique_id=1723334141]
 script = ExtResource("3_msjyj")
+metadata/_custom_type_script = "uid://bvreg21bj52ar"
+
+[node name="Works" type="Node" parent="BTRoot/Brain" unique_id=972321984]
+script = ExtResource("21_m1c23")
 metadata/_custom_type_script = "uid://bvreg21bj52ar"
 
 [node name="StoringItem" type="Node" parent="BTRoot/Brain/Works" unique_id=299631353]
@@ -145,6 +154,7 @@ metadata/_custom_type_script = "uid://duiwpr28l1r3v"
 
 [node name="FindFish" type="Node" parent="BTRoot/Brain/Works/Fishing" unique_id=1924536904]
 script = ExtResource("10_fshwj")
+nat_resource = "Fish"
 metadata/_custom_type_script = "uid://cxylud6lossbd"
 
 [node name="GoToFish" type="Node" parent="BTRoot/Brain/Works/Fishing" unique_id=2055003925]
