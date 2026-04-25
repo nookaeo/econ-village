@@ -13,8 +13,7 @@ var house_storage :Dictionary
 var house_tool_storage :Dictionary
 var build_time :float = 0
 var house_weight :float = 0.0
-var role_rules :Dictionary
-var storage_rule :Dictionary
+var rule :Dictionary
 
 func _ready() -> void:
 	CoreSignal.day_pass.connect(func info() -> void:
