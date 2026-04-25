@@ -8,8 +8,7 @@ func tick(_actor: Node, _blackboard :Node) -> Status:
 		
 	if blackboard.board["target"].gatherer != agent :
 		return Status.FAILURE
-	if agent.active_energy <= 10:
-		return Status.FAILURE
+		
 	blackboard.board["target"].gather()
 
 	return Status.RUNNING
