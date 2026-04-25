@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cproe1k0iw1ux" path="res://scenes/ui/user_ui.tscn" id="6_slgso"]
 [ext_resource type="TileSet" uid="uid://cxn57gl1kgyrp" path="res://resources/core/world_tile_set.tres" id="7_8c1c8"]
 [ext_resource type="PackedScene" uid="uid://ck6ajcfyal0ev" path="res://scenes/core/house_building_manager.tscn" id="7_vn8ag"]
+[ext_resource type="PackedScene" uid="uid://dxfc4eoahn5m6" path="res://scenes/entities/buildings/market.tscn" id="11_epgnc"]
 
 [node name="World" type="Node2D" unique_id=834159277]
 script = ExtResource("1_8c1c8")
@@ -65,3 +66,6 @@ metadata/_edit_lock_ = true
 
 [node name="NaturalResources" type="Node2D" parent="Entities" unique_id=936403520]
 metadata/_edit_lock_ = true
+
+[node name="Market" parent="." unique_id=2116987039 instance=ExtResource("11_epgnc")]
+position = Vector2(1368, 696)
