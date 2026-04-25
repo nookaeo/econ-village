@@ -11,6 +11,7 @@ func tick(_actor: Node, _blackboard :Node) -> Status:
 	var need_energy = min(agent.max_active_energy - agent.active_energy, agent.passive_energy)
 	agent.active_energy += need_energy
 	agent.passive_energy -= need_energy
+	agent.is_tired = false
 	sleep = 0
 	#print("ACTIVE: ",agent.active_energy)
 

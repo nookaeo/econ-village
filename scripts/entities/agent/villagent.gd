@@ -26,6 +26,8 @@ var energy_drain_rate :float = 0.0
 var base_speed :float = 0.0
 var weight_handle :float = 0.0
 var weight :float = 0.0
+var day_time :float = 0.0
+var is_tired :bool = false
 
 var target_position :Vector2 = Vector2.ZERO
 var is_moving: bool = false
@@ -34,14 +36,17 @@ var inventory :Dictionary = {}
 var tools :Dictionary = {}
 
 var home :House = null
+var rule :Dictionary = {"FoodStock": 0.2}
 var partner :Villagent = null
 
 #//////////////////////////////////////////////////////////////////////////////#
 
+
+	
 func _ready() -> void:
 	var current_tile :Vector2i = tile_map.local_to_map(global_position)
 	global_position = tile_map.map_to_local(current_tile)
-	
+	CoreSignal.current_second.connect(_count_time)
 	CoreSignal.birth.emit(self, lifespan)
 	CoreSignal.day_pass.connect(_aging)
 	_base_stats_init()
@@ -54,8 +59,11 @@ func _process(delta: float) -> void:
 	_drain_passive_energy(delta)
 	
 func _physics_process(delta :float) -> void:
+	var strength_index :float = strength / 100.0
+	var hardness :float = 2.5
 	if is_moving:
 		global_position = global_position.move_toward(target_position, base_speed * delta)
+		active_energy -= delta * strength_index * hardness
 		if global_position == target_position:
 			is_moving = false
 			
@@ -92,11 +100,11 @@ func _stats_calculate() -> void:
 	max_active_energy = strength
 	max_passive_energy = floorf(strength * passive_energy_multiplier)
 	weight_handle = floorf(strength / 4.0)
+	
 func _move_to_grid(tile_coords :Vector2i) -> void:
 	target_position = tile_map.map_to_local(tile_coords)
 	is_moving = true
 	
-
 	
 func _aging() -> void:
 	age += 1
@@ -160,7 +168,9 @@ func set_energy() -> void:
 	passive_energy = max_passive_energy
 	active_energy = max_active_energy
 	
-	
+func _count_time(world_second :int) -> void:
+	day_time = world_second % int(time_simulation_day)
+		
 	
 	
 	
