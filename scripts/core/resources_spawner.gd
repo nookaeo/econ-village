@@ -34,8 +34,8 @@ func _resource_spawn(scene ,spawn_rate :int,biome :String):
 		resource.tile_map = tilemap
 		resource.biome = biome
 		natural_resources_directory.add_child(resource)
-		NatResourceManager.register_resource(resource)
 		_place_entity(resource,placable_tiles,biome)
+		NatResourceManager.register_resource(resource)
 		
 	
  
