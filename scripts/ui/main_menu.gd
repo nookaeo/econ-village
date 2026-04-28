@@ -25,7 +25,7 @@ func _stats_update() -> void:
 	var agents :Array = get_tree().get_nodes_in_group("Villagent")
 	var agent_males :Array = get_tree().get_nodes_in_group("male")
 	var agent_females :Array = get_tree().get_nodes_in_group("female")
-	var trees :Array = get_tree().get_nodes_in_group("Trees")
+	var trees :Array = get_tree().get_nodes_in_group("Tree")
 	var stones :Array = get_tree().get_nodes_in_group("Stones")
 	var fish :Array = get_tree().get_nodes_in_group("Fish")
 	%Population.text = str("Population: " ,agents.size(),"/",agent_males.size(),"/",agent_females.size())

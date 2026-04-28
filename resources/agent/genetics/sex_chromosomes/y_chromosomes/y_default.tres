@@ -12,5 +12,6 @@ adult_texture = ExtResource("2_4px50")
 lifespan = 0
 kid_phase = 0
 strength_base = 0.0
+patience_index = 0.0
 sry_gene_power = 0.4
 metadata/_custom_type_script = "uid://e0ksit715d1f"

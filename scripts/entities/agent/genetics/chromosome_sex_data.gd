@@ -8,6 +8,6 @@ class_name SexChromosome
 @export var lifespan :int = 2880 #day
 @export var kid_phase :int = 576 #day
 @export var strength_base :float = 100
-@export var patience_index :float = 100
+@export var patience_index :float = 20
 
 @export var sry_gene_power :float = 0

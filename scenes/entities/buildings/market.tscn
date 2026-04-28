@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bpdpwy21pi7w6" path="res://assets/arts/buildings/base/market.png" id="1_8wwrm"]
 [ext_resource type="Script" uid="uid://cvedtjhy4ur8a" path="res://scripts/entities/buildings/market/market.gd" id="1_jot7j"]
 
-[node name="Market" type="Node2D" unique_id=2116987039]
+[node name="Market" type="Node2D" unique_id=2116987039 groups=["Market"]]
 script = ExtResource("1_jot7j")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=344626925]

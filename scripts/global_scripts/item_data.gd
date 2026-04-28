@@ -20,7 +20,7 @@ var items = {
 	ItemName.Fish: {
 	"name": "fish",
 	"weight": 0.5,
-	"energy": 20.0
+	"energy": 10.0
 	},
 	ItemName.StoneAxe: {
 	"name": "stone axe",

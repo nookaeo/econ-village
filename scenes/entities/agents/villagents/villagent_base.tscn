@@ -9,23 +9,30 @@
 [ext_resource type="Script" uid="uid://bvreg21bj52ar" path="res://scripts/entities/brain/base/bt_util_selector.gd" id="3_msjyj"]
 [ext_resource type="Script" uid="uid://cbspf0natk3ky" path="res://scripts/entities/brain/extends/hunger.gd" id="5_y7sty"]
 [ext_resource type="Script" uid="uid://7qgcidu852cw" path="res://scripts/entities/brain/extends/brain.gd" id="7_xjj7s"]
-[ext_resource type="Script" uid="uid://cnxtg2gls613j" path="res://scripts/entities/brain/extends/fishing.gd" id="9_fshwj"]
+[ext_resource type="Script" uid="uid://de07jo2y56l40" path="res://scripts/entities/brain/extends/idle.gd" id="8_26afn"]
+[ext_resource type="Script" uid="uid://cnxtg2gls613j" path="res://scripts/entities/brain/extends/food.gd" id="9_fshwj"]
 [ext_resource type="Script" uid="uid://dbt0sdof07gt4" path="res://scripts/entities/brain/extends/consume_food.gd" id="9_s62pf"]
-[ext_resource type="Script" uid="uid://cdplxdf14h473" path="res://scripts/entities/brain/extends/find_fish.gd" id="10_fshwj"]
+[ext_resource type="Script" uid="uid://cdplxdf14h473" path="res://scripts/entities/brain/extends/find_resource.gd" id="10_fshwj"]
 [ext_resource type="Script" uid="uid://5lamu5qxqgei" path="res://scripts/entities/brain/extends/rest.gd" id="10_s62pf"]
-[ext_resource type="Script" uid="uid://cpfrcph826kv6" path="res://scripts/entities/brain/extends/go_to_fish.gd" id="11_givvw"]
+[ext_resource type="Script" uid="uid://cpfrcph826kv6" path="res://scripts/entities/brain/extends/go_to_resource.gd" id="11_givvw"]
 [ext_resource type="Script" uid="uid://bfst6yr6doxyn" path="res://scripts/entities/brain/extends/sleep.gd" id="11_hj8gw"]
 [ext_resource type="Script" uid="uid://dbl54nf24vug0" path="res://scripts/entities/brain/extends/go_to_home.gd" id="11_ifqoa"]
 [ext_resource type="Script" uid="uid://cnrbjm5qrgp5i" path="res://scripts/entities/brain/extends/home.gd" id="13_1we3c"]
 [ext_resource type="Script" uid="uid://dw2d0q47i54ca" path="res://scripts/entities/brain/extends/create_site.gd" id="13_6siub"]
 [ext_resource type="Script" uid="uid://duiwpr28l1r3v" path="res://scripts/entities/brain/base/bt_sequence.gd" id="13_58vak"]
-[ext_resource type="Script" uid="uid://dnfrwg88vbprg" path="res://scripts/entities/brain/extends/catch_fish.gd" id="13_jevfg"]
+[ext_resource type="Script" uid="uid://dnfrwg88vbprg" path="res://scripts/entities/brain/extends/gather_resource.gd" id="13_jevfg"]
 [ext_resource type="Script" uid="uid://dnnp52lns6dlj" path="res://scripts/entities/brain/extends/create_house.gd" id="14_ifqoa"]
 [ext_resource type="Script" uid="uid://7mtv4m1aemt5" path="res://scripts/entities/brain/extends/is_male.gd" id="15_1we3c"]
 [ext_resource type="Script" uid="uid://ctvonk4pt8oak" path="res://scripts/entities/brain/extends/find_house.gd" id="16_evbud"]
 [ext_resource type="Script" uid="uid://cl3r6c2guy7h5" path="res://scripts/entities/brain/extends/storing_item.gd" id="19_73i3h"]
 [ext_resource type="Script" uid="uid://616tgyu08ekr" path="res://scripts/entities/brain/extends/works.gd" id="21_m1c23"]
 [ext_resource type="Script" uid="uid://5h6tm3uksnvi" path="res://scripts/entities/brain/extends/store_item.gd" id="21_xjj7s"]
+[ext_resource type="Script" uid="uid://cnyd8fcwkoags" path="res://scripts/entities/brain/extends/main_work_calculation.gd" id="22_cijhl"]
+[ext_resource type="Script" uid="uid://cspu3grbuni3x" path="res://scripts/entities/brain/extends/wood.gd" id="27_c4ses"]
+[ext_resource type="Script" uid="uid://c1qcfgmtw83vl" path="res://scripts/entities/brain/extends/shells.gd" id="28_7pgu3"]
+[ext_resource type="Script" uid="uid://ds6sooxijk1nx" path="res://scripts/entities/brain/extends/sign_market.gd" id="31_s0qm5"]
+[ext_resource type="Script" uid="uid://cjf0n1u75ndd5" path="res://scripts/entities/brain/extends/go_to_market.gd" id="32_ap1jx"]
+[ext_resource type="Script" uid="uid://coun6nocvrqcr" path="res://scripts/entities/brain/extends/market/sign_market.gd" id="33_f2vu1"]
 
 [sub_resource type="Resource" id="Resource_fshwj"]
 resource_local_to_scene = true
@@ -46,6 +53,10 @@ collision_layer = 0
 collision_mask = 0
 script = ExtResource("1_711qk")
 genetics = SubResource("Resource_givvw")
+rule = {
+"FoodStock": 0.2,
+"WoodStock": 0.2
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1055440056]
 shape = SubResource("CircleShape2D_yhs1t")
@@ -55,6 +66,7 @@ unique_name_in_owner = true
 texture = ExtResource("2_hcufs")
 
 [node name="Blackboard" type="Node" parent="." unique_id=1799383195]
+unique_name_in_owner = true
 script = ExtResource("2_5fhcm")
 metadata/_custom_type_script = "uid://dfb5coks7mdfx"
 
@@ -67,6 +79,14 @@ metadata/_custom_type_script = "uid://l62iss1j822u"
 [node name="Brain" type="Node" parent="BTRoot" unique_id=1366937598]
 script = ExtResource("7_xjj7s")
 metadata/_custom_type_script = "uid://bvreg21bj52ar"
+
+[node name="Idle" type="Node" parent="BTRoot/Brain" unique_id=488665035]
+script = ExtResource("8_26afn")
+metadata/_custom_type_script = "uid://duiwpr28l1r3v"
+
+[node name="GoToHome" type="Node" parent="BTRoot/Brain/Idle" unique_id=920310262]
+script = ExtResource("11_ifqoa")
+metadata/_custom_type_script = "uid://cxylud6lossbd"
 
 [node name="BasicNeeds" type="Node" parent="BTRoot/Brain" unique_id=2102375247]
 script = ExtResource("3_msjyj")
@@ -132,6 +152,10 @@ metadata/_custom_type_script = "uid://cxylud6lossbd"
 script = ExtResource("3_msjyj")
 metadata/_custom_type_script = "uid://bvreg21bj52ar"
 
+[node name="MainWorkCalculation" type="Node" parent="BTRoot/Brain" unique_id=1065306154]
+script = ExtResource("22_cijhl")
+metadata/_custom_type_script = "uid://duiwpr28l1r3v"
+
 [node name="Works" type="Node" parent="BTRoot/Brain" unique_id=972321984]
 script = ExtResource("21_m1c23")
 metadata/_custom_type_script = "uid://bvreg21bj52ar"
@@ -148,19 +172,69 @@ metadata/_custom_type_script = "uid://cxylud6lossbd"
 script = ExtResource("21_xjj7s")
 metadata/_custom_type_script = "uid://cxylud6lossbd"
 
-[node name="Fishing" type="Node" parent="BTRoot/Brain/Works" unique_id=1017116063]
+[node name="Food" type="Node" parent="BTRoot/Brain/Works" unique_id=1017116063]
 script = ExtResource("9_fshwj")
 metadata/_custom_type_script = "uid://duiwpr28l1r3v"
 
-[node name="FindFish" type="Node" parent="BTRoot/Brain/Works/Fishing" unique_id=1924536904]
+[node name="FindFish" type="Node" parent="BTRoot/Brain/Works/Food" unique_id=1924536904]
 script = ExtResource("10_fshwj")
 nat_resource = "Fish"
 metadata/_custom_type_script = "uid://cxylud6lossbd"
 
-[node name="GoToFish" type="Node" parent="BTRoot/Brain/Works/Fishing" unique_id=2055003925]
+[node name="GoToFish" type="Node" parent="BTRoot/Brain/Works/Food" unique_id=2055003925]
 script = ExtResource("11_givvw")
 metadata/_custom_type_script = "uid://cxylud6lossbd"
 
-[node name="CatchFish" type="Node" parent="BTRoot/Brain/Works/Fishing" unique_id=237131036]
+[node name="CatchFish" type="Node" parent="BTRoot/Brain/Works/Food" unique_id=237131036]
 script = ExtResource("13_jevfg")
+metadata/_custom_type_script = "uid://cxylud6lossbd"
+
+[node name="Wood" type="Node" parent="BTRoot/Brain/Works" unique_id=1851635067]
+script = ExtResource("27_c4ses")
+metadata/_custom_type_script = "uid://duiwpr28l1r3v"
+
+[node name="FindTree" type="Node" parent="BTRoot/Brain/Works/Wood" unique_id=1436824750]
+script = ExtResource("10_fshwj")
+nat_resource = "Tree"
+metadata/_custom_type_script = "uid://cxylud6lossbd"
+
+[node name="GoToTree" type="Node" parent="BTRoot/Brain/Works/Wood" unique_id=1020776]
+script = ExtResource("11_givvw")
+metadata/_custom_type_script = "uid://cxylud6lossbd"
+
+[node name="CutTree" type="Node" parent="BTRoot/Brain/Works/Wood" unique_id=734491783]
+script = ExtResource("13_jevfg")
+metadata/_custom_type_script = "uid://cxylud6lossbd"
+
+[node name="Shells" type="Node" parent="BTRoot/Brain/Works" unique_id=944016237]
+script = ExtResource("28_7pgu3")
+metadata/_custom_type_script = "uid://duiwpr28l1r3v"
+
+[node name="FindShell" type="Node" parent="BTRoot/Brain/Works/Shells" unique_id=830656821]
+script = ExtResource("10_fshwj")
+nat_resource = "Shell"
+metadata/_custom_type_script = "uid://cxylud6lossbd"
+
+[node name="GoToShell" type="Node" parent="BTRoot/Brain/Works/Shells" unique_id=772109984]
+script = ExtResource("11_givvw")
+metadata/_custom_type_script = "uid://cxylud6lossbd"
+
+[node name="PickShell" type="Node" parent="BTRoot/Brain/Works/Shells" unique_id=2093836288]
+script = ExtResource("13_jevfg")
+metadata/_custom_type_script = "uid://cxylud6lossbd"
+
+[node name="Market" type="Node" parent="BTRoot/Brain" unique_id=1282510010]
+script = ExtResource("3_msjyj")
+metadata/_custom_type_script = "uid://bvreg21bj52ar"
+
+[node name="SignMarket" type="Node" parent="BTRoot/Brain/Market" unique_id=1142649401]
+script = ExtResource("31_s0qm5")
+metadata/_custom_type_script = "uid://duiwpr28l1r3v"
+
+[node name="GoToMarket" type="Node" parent="BTRoot/Brain/Market/SignMarket" unique_id=184591255]
+script = ExtResource("32_ap1jx")
+metadata/_custom_type_script = "uid://cxylud6lossbd"
+
+[node name="SignMarket" type="Node" parent="BTRoot/Brain/Market/SignMarket" unique_id=341596534]
+script = ExtResource("33_f2vu1")
 metadata/_custom_type_script = "uid://cxylud6lossbd"

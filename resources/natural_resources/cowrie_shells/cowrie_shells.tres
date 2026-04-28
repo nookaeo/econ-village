@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_l51uh")
-name = "CowrieShell"
+name = "Shell"
 drop_amount = 2
 gather_time = 0.2
 gather_hardness = 10.0

@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bgse7djo0fcjo" path="res://assets/arts/natural_resources/baisc_tree.png" id="1_pjk1t"]
 [ext_resource type="Resource" uid="uid://ddtvwqkiakdjo" path="res://resources/natural_resources/trees/basic_tree.tres" id="2_o58no"]
 
-[node name="BasicTree" type="Node2D" unique_id=329198679 groups=["Trees"]]
+[node name="BasicTree" type="Node2D" unique_id=329198679 groups=["Tree"]]
 script = ExtResource("1_45g7s")
 natural_resource_data = ExtResource("2_o58no")
 

@@ -10,6 +10,7 @@ func tick(_actor: Node, _blackboard :Node) -> Status:
 			male.partner = agent
 			agent.partner = male
 			agent.home = agent.partner.home
+			agent.home.house_member.append(agent)
 			return Status.SUCCESS
 	#return Status.FAILURE
 	return Status.RUNNING

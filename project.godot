@@ -53,12 +53,14 @@ folder_colors={
 [global_group]
 
 Villagent="Villager agent the main character to this simulation"
-Trees=""
 male=""
 female=""
-Stones=""
 Fish=""
 Entities=""
+Tree=""
+Stone=""
+Shell=""
+Market=""
 
 [physics]
 

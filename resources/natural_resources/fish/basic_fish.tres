@@ -6,7 +6,7 @@
 script = ExtResource("1_psyig")
 name = "Fish"
 item_name = 3
-drop_amount = 5
-gather_time = 4.0
-gather_hardness = 5.0
+drop_amount = 9
+gather_time = 2.0
+gather_hardness = 3.0
 metadata/_custom_type_script = "uid://6ongvi1rrac1"

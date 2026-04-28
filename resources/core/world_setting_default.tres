@@ -4,8 +4,9 @@
 
 [resource]
 script = ExtResource("1_dpie4")
-time_scale = 10
-cowrie_spawn_rate = 20
+resources_crowd_rate = 0.1
+cowrie_spawn_rate = 50
+tree_spawn_rate = 90
 stone_spawn_rate = 5
-fish_spawn_rate = 100
+fish_spawn_rate = 120
 metadata/_custom_type_script = "uid://dm2bw75mvkksh"

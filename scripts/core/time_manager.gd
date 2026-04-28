@@ -21,7 +21,6 @@ func _process(delta: float) -> void:
 
 
 func _count_day(delta :float) -> void :
-	
 	time_count += delta
 	if time_count < time_simulation_day:
 		return
@@ -30,6 +29,7 @@ func _count_day(delta :float) -> void :
 	time_count -= time_simulation_day
 	CoreSignal.day_pass.emit()
 	death_handler()
+	print("*******************************")
 		
 func _count_second(delta :float) -> void:
 	second_count += delta
