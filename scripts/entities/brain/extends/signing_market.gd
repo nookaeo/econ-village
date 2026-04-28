@@ -1,7 +1,7 @@
 extends BTSequence
 func get_utility_score(_actor :Node) -> float:
 	var agent :Villagent = _actor
-	var blackboard :Blackboard = %Blackboard
+	#var blackboard :Blackboard = %Blackboard
 	
 	if agent.home == null:
 		return 0.0

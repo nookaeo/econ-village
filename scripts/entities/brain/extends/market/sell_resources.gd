@@ -1,11 +1,12 @@
 extends BTSequence
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func get_utility_score(_actor :Node) -> float:
+	var agent :Villagent = _actor
+	#var blackboard :Blackboard = %Blackboard
+	
+	if agent.home == null:
+		return 0.0
+	if agent.home.house_level < 1:
+		return 0.0
+	if agent.market_id > 0:
+		return 0.0
+	return 0.9
