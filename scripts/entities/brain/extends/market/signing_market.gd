@@ -1,12 +1,14 @@
 extends BTSequence
-
 func get_utility_score(_actor :Node) -> float:
 	var agent :Villagent = _actor
-	var blackboard :Blackboard = %Blackboard
+	#var blackboard :Blackboard = %Blackboard
+	
 	if agent.home == null:
 		return 0.0
 	if agent.home.house_level < 1:
 		return 0.0
-	if agent.weight < agent.weight_handle:
+	if agent.market_id > 0 :
 		return 0.0
-	return 1.0
+	if not get_tree().get_first_node_in_group("Market"):
+		return 0.0
+	return 0.95

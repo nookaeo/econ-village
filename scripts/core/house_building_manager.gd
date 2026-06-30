@@ -14,4 +14,5 @@ func create_house_site(agent :Villagent) -> void:
 	house.position = tile_map.map_to_local(tile_pos)
 	building_directory.add_child(house)
 	agent.home = house
-	agent.home.house_owner = agent
+	house.house_owner = agent
+	house.house_member.append(agent)

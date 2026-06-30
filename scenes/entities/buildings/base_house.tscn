@@ -6,6 +6,9 @@
 [ext_resource type="Resource" uid="uid://ddkxsvem52juc" path="res://resources/houses/log_house.tres" id="3_wdigm"]
 [ext_resource type="Resource" uid="uid://j34pr7uiskld" path="res://resources/houses/stone_house.tres" id="4_t13qj"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_aflnk"]
+font_size = 8
+
 [node name="BaseHouse" type="Node2D" unique_id=1115710553]
 script = ExtResource("1_u17db")
 house_level_1 = ExtResource("2_aflnk")
@@ -15,3 +18,25 @@ house_level_3 = ExtResource("4_t13qj")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=940657203]
 unique_name_in_owner = true
 texture = ExtResource("2_p06uh")
+
+[node name="Strategy" type="Label" parent="." unique_id=1122203719]
+unique_name_in_owner = true
+z_index = 2
+offset_left = -35.0
+offset_top = 6.0
+offset_right = 39.0
+offset_bottom = 18.0
+text = "Strategy"
+label_settings = SubResource("LabelSettings_aflnk")
+horizontal_alignment = 1
+
+[node name="Resources" type="Label" parent="." unique_id=1683380941]
+unique_name_in_owner = true
+z_index = 2
+offset_left = -35.0
+offset_top = -72.0
+offset_right = 35.0
+offset_bottom = -60.0
+text = "Resources"
+label_settings = SubResource("LabelSettings_aflnk")
+horizontal_alignment = 1

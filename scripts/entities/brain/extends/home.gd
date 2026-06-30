@@ -6,4 +6,4 @@ func get_utility_score(_actor :Node) -> float:
 	if agent.home != null:
 		if agent.home.house_level > 0:
 			return 0.0
-	return 1.0
+	return 0.95

@@ -1,5 +1,5 @@
 extends Node
-func find_median(array: Array) -> float:
+func find_median(array :Array) -> float:
 	var target_array = array.duplicate(true)
 	var size: float = target_array.size()
 	target_array.sort()
@@ -11,3 +11,11 @@ func find_median(array: Array) -> float:
 	else:
 		median_value =  target_array[int((size - 1) * 0.5)]
 		return median_value
+
+func find_mean(array :Array) -> float :
+	var target_array = array.duplicate(true)
+	var size: float = target_array.size()
+	var sum :float = 0
+	for num in target_array:
+		sum += num
+	return sum / size

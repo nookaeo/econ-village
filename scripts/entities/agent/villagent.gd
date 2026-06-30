@@ -8,7 +8,7 @@ const rate :float = 1.0
 #Base variables
 var tile_map :TileMapLayer
 @export var genetics :Genetics
-@export var rule :Dictionary = {"FoodStock": 0.0,"WoodStock": 0.0}
+@export var rule :Dictionary = {Enums.ItemId.Fish: 0.0,Enums.ItemId.Wood: 0.0}
 var passive_energy_multiplier :float = 10
 var energy_drain_multiplier :float = 0.5
 var sex :String
@@ -34,12 +34,28 @@ var is_tired :bool = false
 
 var target_position :Vector2 = Vector2.ZERO
 var is_moving: bool = false
+
 #Item variables
 var inventory :Dictionary = {}
 var tools :Dictionary = {}
 
 var home :House = null
-var role :Dictionary = {"male":["Food","Wood","Shell"],"female":["Food","Shell","Shipping"]}
+var role_responsibilities :Dictionary = {
+	Enums.Strategy.SelfSufficient: {
+		"provider":[Enums.WorkType.CatchFish, Enums.WorkType.CutTree, Enums.WorkType.FindShell],
+		"supporter":[Enums.WorkType.MakeHouse,Enums.WorkType.SellResource,Enums.WorkType.BuyResource]},
+	Enums.Strategy.ShellFinder: {
+		"provider":[Enums.WorkType.FindShell],
+		"supporter":[Enums.WorkType.MakeHouse,Enums.WorkType.SellResource,Enums.WorkType.BuyResource]},
+	Enums.Strategy.FishCatcher: {
+		"provider":[Enums.WorkType.CatchFish],
+		"supporter":[Enums.WorkType.MakeHouse,Enums.WorkType.SellResource,Enums.WorkType.BuyResource]},
+	Enums.Strategy.Lumberjack: {
+		"provider":[Enums.WorkType.CutTree],
+		"supporter":[Enums.WorkType.MakeHouse,Enums.WorkType.SellResource,Enums.WorkType.BuyResource]},
+		
+}
+var role :Array 
 var partner :Villagent = null
 
 #statistics
@@ -47,12 +63,13 @@ var gather_count :Dictionary = {}
 var gather_statistic :Dictionary = {}
 
 var market_id :int = 0
+
+var market_data :Dictionary
 #//////////////////////////////////////////////////////////////////////////////#
 
 
 	
 func _ready() -> void:
-	
 	var current_tile :Vector2i = tile_map.local_to_map(global_position)
 	global_position = tile_map.map_to_local(current_tile)
 	CoreSignal.current_second.connect(_count_time)
@@ -66,22 +83,27 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	_drain_passive_energy(delta)
+	#print(%Blackboard.board)
 	
 func _physics_process(delta :float) -> void:
 	var strength_index :float = strength / 100.0
-	var hardness :float = 1
+	var hardness :float = 5.0
 	
 	if is_moving:
-		global_position = global_position.move_toward(target_position, base_speed * delta)
-		active_energy -= delta * strength_index * hardness
 		if global_position == target_position:
 			is_moving = false
+			return
+		global_position = global_position.move_toward(target_position, base_speed * delta)
+		active_energy -= delta * strength_index * hardness
+		
+		
 			
 #///////////////////////////////////////////////////////////////////////////#
 
 func _pass_day() -> void:
 	_aging()
 	_calculate_statistic()
+	#print(gather_statistic)
 
 func _base_stats_init() -> void:
 	var first_sex_chromosomes :SexChromosome = genetics.sex.first
@@ -92,6 +114,7 @@ func _base_stats_init() -> void:
 	var sum_lifespan :int = first_sex_chromosomes.lifespan + second_sex_chromosomes.lifespan
 	var sum_kid_phase :int = first_sex_chromosomes.kid_phase + second_sex_chromosomes.kid_phase
 	var sum_patience_index :float = first_sex_chromosomes.patience_index + second_sex_chromosomes.patience_index
+	
 	if first_sex_chromosomes.sry_gene_power + second_sex_chromosomes.sry_gene_power > 0 :
 		status_average_index = 1
 		sex = "male"
@@ -114,7 +137,7 @@ func _base_stats_init() -> void:
 func _stats_calculate() -> void:
 	strength = floorf(max_strength * (0.1 + (age / kid_phase) * 0.9)) 
 	energy_drain_rate = floorf(strength * energy_drain_multiplier)
-	base_speed = floorf(clamp(floorf(400 - ((strength - 200) ** 2) / 200),0,1000))
+	base_speed = floorf(clamp(floorf((3 * strength) + 200),0,1000))
 	max_active_energy = strength
 	max_passive_energy = floorf(strength * passive_energy_multiplier)
 	weight_handle = floorf(strength / 4.0)
@@ -156,35 +179,19 @@ func calculate_weight() -> void:
 	for item in inventory:
 		weight += inventory[item] * ItemData.items[item]["weight"]
 		
-func add_item(item_name :ItemData.ItemName,amount :int) -> void:
+func add_item(item_name :Enums.ItemId,amount :int) -> void:
 	if not inventory.has(item_name):
 		inventory[item_name] = 0
 	inventory[item_name] += amount
 	calculate_weight()
 
-func remove_item(item_name :ItemData.ItemName,amount :int):
+func remove_item(item_name :Enums.ItemId,amount :int):
 	if not inventory.has(item_name):
 		return
 	if inventory[item_name] < amount:
 		return
 	inventory[item_name] -= amount
 	calculate_weight()
-
-func store_item_to_home() -> void:
-	if home == null:
-		return
-	if home.house_level < 1:
-		return
-	if inventory.size() < 1:
-		return
-	for item in inventory:
-		if not home.house_storage.has(item):
-			home.house_storage[item] = 0
-		home.house_storage[item] += inventory[item]
-	inventory.clear()
-	calculate_weight()
-	home.calculate_weight()
-	return
 	
 	
 func die() -> void:
@@ -196,7 +203,7 @@ func set_energy() -> void:
 	passive_energy = max_passive_energy
 	active_energy = max_active_energy
 	
-func count_gather_resource(item_id :ItemData.ItemName, amount :int) -> void:
+func count_gather_resource(item_id :Enums.ItemId, amount :int) -> void:
 	if amount <= 0:
 		return
 		
@@ -212,8 +219,8 @@ func _calculate_statistic() -> void:
 			gather_statistic[item] = [] 
 		#day_stats[item] = gather_count[item]
 		gather_statistic[item].push_front(gather_count[item])
-		if gather_statistic[item].size() > 7:
-			gather_statistic[item].resize(7)
+		if gather_statistic[item].size() > 3:
+			gather_statistic[item].resize(3)
 	gather_count.clear()
 
 func _count_time(world_second :int) -> void:

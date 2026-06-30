@@ -1,43 +1,42 @@
 extends Node
-enum ToolType {NONE, MULTIPURPOSE, AXE, PICAXE, HOE }
-enum ItemName {Shells,Wood,Stone,Fish,StoneAxe,BronzeAxe}
+
 
 var items = {
-	ItemName.Shells: {
+	Enums.ItemId.Shells: {
 	"name": "cowrie shell",
 	"weight": 0,
 	},
-	ItemName.Wood: {
+	Enums.ItemId.Wood: {
 	"name": "wood",
 	"weight": 1.0,
 	
 	},
-	ItemName.Stone: {
+	Enums.ItemId.Stone: {
 	"name": "stone",
 	"weight": 2.0,
 	
 	},
-	ItemName.Fish: {
+	Enums.ItemId.Fish: {
 	"name": "fish",
 	"weight": 0.5,
 	"energy": 10.0
 	},
-	ItemName.StoneAxe: {
+	Enums.ItemId.StoneAxe: {
 	"name": "stone axe",
 	"weight": 2.0,
-	"tool_type": ToolType.MULTIPURPOSE,
+	"tool_type": Enums.ToolType.MULTIPURPOSE,
 	"craft_time": 8,
 	"tool_level": 0,
 	"durability": 10,  
-	"materials": {ItemName.Wood:2,ItemName.Stone:1},
+	"materials": {Enums.ItemId.Wood:2,Enums.ItemId.Stone:1},
 	},
-	ItemName.BronzeAxe: {
+	Enums.ItemId.BronzeAxe: {
 	"name": "bronze axe",
 	"weight": 2.0,
-	"tool_type": ToolType.AXE,
+	"tool_type": Enums.ToolType.AXE,
 	"craft_time": 8,
 	"tool_level": 1,
 	"durability": 20,  
-	"materials": {ItemName.Wood:2,ItemName.Stone:1},
+	"materials": {Enums.ItemId.Wood:2,Enums.ItemId.Stone:1},
 	},
 }

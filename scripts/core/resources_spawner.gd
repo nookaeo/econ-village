@@ -22,6 +22,7 @@ func _resources_spawn() -> void:
 	day_pass += 1
 	_resource_spawn(trees_scene, world_setting.tree_spawn_rate,"dirt")
 	_resource_spawn(fish_scene, world_setting.fish_spawn_rate,"water")
+	#_resource_spawn(cowrie_shell_scene, int(world_setting.cowrie_spawn_rate * 2 ** int(day_pass/50)),"sand")
 	_resource_spawn(cowrie_shell_scene, world_setting.cowrie_spawn_rate,"sand")
 	_resource_spawn(basic_stone_scene, world_setting.stone_spawn_rate,"stone")
 	
@@ -35,7 +36,7 @@ func _resource_spawn(scene ,spawn_rate :int,biome :String):
 		resource.biome = biome
 		natural_resources_directory.add_child(resource)
 		_place_entity(resource,placable_tiles,biome)
-		NatResourceManager.register_resource(resource)
+		NatResourceManager.register_resource(resource,resource.natural_resource_data.name)
 		
 	
  

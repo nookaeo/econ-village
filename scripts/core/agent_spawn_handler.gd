@@ -31,6 +31,7 @@ func _ready() -> void:
 			agent.genetics.sex.second = _seeded_pick(x_sex_chromosomes)
 		agent.age += 576
 		agent.tile_map = tilemap
+		agent.name = str("villagent_",i)
 		agents_directory.add_child(agent)
 		_place_agent(agent,placable_tiles)
 	

@@ -5,9 +5,9 @@ func get_utility_score(_actor :Node) -> float:
 		return 0.0
 	if agent.home.house_level < 1:
 		return 0.0
-	if not agent.home.house_storage.has(3):
+	if not agent.home.house_storage.has(Enums.ItemId.Fish):
 		return 0.0
-	if agent.home.house_storage[3] <= 0:
+	if agent.home.house_storage[Enums.ItemId.Fish] <= 0:
 		return 0.0
 	var food_need :float = clamp(pow((agent.max_passive_energy - agent.passive_energy) / agent.max_passive_energy,(1.0/16.0)),0,1)
 	#print("food:",food_need)

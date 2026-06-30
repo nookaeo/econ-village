@@ -24,6 +24,8 @@ CoreConstant="*uid://dt33klg11lffw"
 ItemData="*uid://7rh4s3eirojn"
 TilesManager="*uid://df1yo1vf3kuw0"
 NatResourceManager="*uid://dbnu0bo0pgvgh"
+Enums="*uid://c6amymgbwutpl"
+Statistic="*uid://cvdmqjecwusdd"
 
 [debug]
 

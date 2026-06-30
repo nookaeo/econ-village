@@ -7,9 +7,7 @@
 [ext_resource type="Script" uid="uid://l62iss1j822u" path="res://scripts/entities/brain/base/bt_root_node.gd" id="2_p3yqw"]
 [ext_resource type="Script" uid="uid://bialixmgiuda2" path="res://scripts/entities/agent/genetics/chromosomes_pair_data.gd" id="3_f116k"]
 [ext_resource type="Script" uid="uid://bvreg21bj52ar" path="res://scripts/entities/brain/base/bt_util_selector.gd" id="3_msjyj"]
-[ext_resource type="Script" uid="uid://cbspf0natk3ky" path="res://scripts/entities/brain/extends/hunger.gd" id="5_y7sty"]
 [ext_resource type="Script" uid="uid://7qgcidu852cw" path="res://scripts/entities/brain/extends/brain.gd" id="7_xjj7s"]
-[ext_resource type="Script" uid="uid://de07jo2y56l40" path="res://scripts/entities/brain/extends/idle.gd" id="8_26afn"]
 [ext_resource type="Script" uid="uid://cnxtg2gls613j" path="res://scripts/entities/brain/extends/working/food.gd" id="9_fshwj"]
 [ext_resource type="Script" uid="uid://dbt0sdof07gt4" path="res://scripts/entities/brain/extends/consume_food.gd" id="9_s62pf"]
 [ext_resource type="Script" uid="uid://cdplxdf14h473" path="res://scripts/entities/brain/extends/working/find_resource.gd" id="10_fshwj"]
@@ -17,23 +15,36 @@
 [ext_resource type="Script" uid="uid://cpfrcph826kv6" path="res://scripts/entities/brain/extends/working/go_to_resource.gd" id="11_givvw"]
 [ext_resource type="Script" uid="uid://bfst6yr6doxyn" path="res://scripts/entities/brain/extends/sleep.gd" id="11_hj8gw"]
 [ext_resource type="Script" uid="uid://dbl54nf24vug0" path="res://scripts/entities/brain/extends/go_to_home.gd" id="11_ifqoa"]
+[ext_resource type="Script" uid="uid://c1c1j4ihxm118" path="res://scripts/entities/brain/extends/market/get_market_info.gd" id="12_0ny81"]
 [ext_resource type="Script" uid="uid://cnrbjm5qrgp5i" path="res://scripts/entities/brain/extends/home.gd" id="13_1we3c"]
 [ext_resource type="Script" uid="uid://dw2d0q47i54ca" path="res://scripts/entities/brain/extends/create_site.gd" id="13_6siub"]
 [ext_resource type="Script" uid="uid://duiwpr28l1r3v" path="res://scripts/entities/brain/base/bt_sequence.gd" id="13_58vak"]
+[ext_resource type="Script" uid="uid://b4m26mvg8df3t" path="res://scripts/entities/brain/extends/market/store_market_data.gd" id="13_dhqnq"]
 [ext_resource type="Script" uid="uid://dnfrwg88vbprg" path="res://scripts/entities/brain/extends/working/gather_resource.gd" id="13_jevfg"]
 [ext_resource type="Script" uid="uid://dnnp52lns6dlj" path="res://scripts/entities/brain/extends/create_house.gd" id="14_ifqoa"]
 [ext_resource type="Script" uid="uid://7mtv4m1aemt5" path="res://scripts/entities/brain/extends/is_male.gd" id="15_1we3c"]
 [ext_resource type="Script" uid="uid://ctvonk4pt8oak" path="res://scripts/entities/brain/extends/find_house.gd" id="16_evbud"]
+[ext_resource type="Script" uid="uid://ce0n4kggiqdnp" path="res://scripts/entities/brain/extends/market/getting_market_in_formation.gd" id="17_lm777"]
 [ext_resource type="Script" uid="uid://cl3r6c2guy7h5" path="res://scripts/entities/brain/extends/working/storing_item.gd" id="19_73i3h"]
 [ext_resource type="Script" uid="uid://616tgyu08ekr" path="res://scripts/entities/brain/extends/working/working.gd" id="21_m1c23"]
 [ext_resource type="Script" uid="uid://5h6tm3uksnvi" path="res://scripts/entities/brain/extends/working/store_item.gd" id="21_xjj7s"]
-[ext_resource type="Script" uid="uid://cnyd8fcwkoags" path="res://scripts/entities/brain/extends/main_work_calculation.gd" id="22_cijhl"]
+[ext_resource type="Script" uid="uid://cnyd8fcwkoags" path="res://scripts/entities/brain/extends/startegy_calculation/startegy_calculation.gd" id="22_cijhl"]
+[ext_resource type="Script" uid="uid://2ruucg24m71v" path="res://scripts/entities/brain/extends/startegy_calculation/strategy_calculate.gd" id="23_dhqnq"]
 [ext_resource type="Script" uid="uid://cspu3grbuni3x" path="res://scripts/entities/brain/extends/working/wood.gd" id="27_c4ses"]
 [ext_resource type="Script" uid="uid://c1qcfgmtw83vl" path="res://scripts/entities/brain/extends/working/shells.gd" id="28_7pgu3"]
-[ext_resource type="Script" uid="uid://ds6sooxijk1nx" path="res://scripts/entities/brain/extends/signing_market.gd" id="31_s0qm5"]
-[ext_resource type="Script" uid="uid://cjf0n1u75ndd5" path="res://scripts/entities/brain/extends/go_to_market.gd" id="32_ap1jx"]
+[ext_resource type="Script" uid="uid://dh6b6wuatrbbl" path="res://scripts/entities/brain/extends/house/pick_resource.gd" id="29_y5wxg"]
+[ext_resource type="Script" uid="uid://x23lqso5pnm" path="res://scripts/entities/brain/extends/market/withdraw_shell.gd" id="31_7l7ua"]
+[ext_resource type="Script" uid="uid://ds6sooxijk1nx" path="res://scripts/entities/brain/extends/market/signing_market.gd" id="31_s0qm5"]
+[ext_resource type="Script" uid="uid://bhpuuf7ts4bnw" path="res://scripts/entities/brain/extends/selling_resources/remember_work.gd" id="31_vf6p5"]
+[ext_resource type="Script" uid="uid://cjf0n1u75ndd5" path="res://scripts/entities/brain/extends/market/go_to_market.gd" id="32_ap1jx"]
+[ext_resource type="Script" uid="uid://b6xp4kcfo5wy1" path="res://scripts/entities/brain/extends/selling_resources/pick_resources.gd" id="32_baacg"]
+[ext_resource type="Script" uid="uid://crkron263fmja" path="res://scripts/entities/brain/extends/market/buy_item.gd" id="32_xrowx"]
+[ext_resource type="Script" uid="uid://brel7qa7c0th2" path="res://scripts/entities/brain/extends/working/forgot_work.gd" id="32_y5wxg"]
 [ext_resource type="Script" uid="uid://coun6nocvrqcr" path="res://scripts/entities/brain/extends/market/sign_market.gd" id="33_f2vu1"]
+[ext_resource type="Script" uid="uid://d30krf1gc1ovn" path="res://scripts/entities/brain/extends/selling_resources/sell_resource.gd" id="33_rd6ql"]
 [ext_resource type="Script" uid="uid://qvotvjm0hdbk" path="res://scripts/entities/brain/extends/market/sell_resources.gd" id="34_qe0uf"]
+[ext_resource type="Script" uid="uid://csdlmaglv4ugw" path="res://scripts/entities/brain/extends/market/clear_data.gd" id="35_r3ysr"]
+[ext_resource type="Script" uid="uid://clag1xc2y8lao" path="res://scripts/entities/brain/extends/market/buying_resource.gd" id="40_rd6ql"]
 
 [sub_resource type="Resource" id="Resource_fshwj"]
 resource_local_to_scene = true
@@ -55,8 +66,8 @@ collision_mask = 0
 script = ExtResource("1_711qk")
 genetics = SubResource("Resource_givvw")
 rule = {
-"FoodStock": 0.2,
-"WoodStock": 0.2
+1: 0.2,
+3: 0.2
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1055440056]
@@ -81,45 +92,80 @@ metadata/_custom_type_script = "uid://l62iss1j822u"
 script = ExtResource("7_xjj7s")
 metadata/_custom_type_script = "uid://bvreg21bj52ar"
 
-[node name="Idle" type="Node" parent="BTRoot/Brain" unique_id=488665035]
-script = ExtResource("8_26afn")
+[node name="Strategy" type="Node" parent="BTRoot/Brain" unique_id=1813082845]
+script = ExtResource("3_msjyj")
+metadata/_custom_type_script = "uid://bvreg21bj52ar"
+
+[node name="SigningMarket" type="Node" parent="BTRoot/Brain/Strategy" unique_id=1142649401]
+script = ExtResource("31_s0qm5")
 metadata/_custom_type_script = "uid://duiwpr28l1r3v"
 
-[node name="GoToHome" type="Node" parent="BTRoot/Brain/Idle" unique_id=920310262]
+[node name="GoToMarket" type="Node" parent="BTRoot/Brain/Strategy/SigningMarket" unique_id=184591255]
+script = ExtResource("32_ap1jx")
+metadata/_custom_type_script = "uid://cxylud6lossbd"
+
+[node name="SignMarket" type="Node" parent="BTRoot/Brain/Strategy/SigningMarket" unique_id=341596534]
+script = ExtResource("33_f2vu1")
+metadata/_custom_type_script = "uid://cxylud6lossbd"
+
+[node name="GetMarketInfo" type="Node" parent="BTRoot/Brain/Strategy/SigningMarket" unique_id=601747095]
+script = ExtResource("12_0ny81")
+metadata/_custom_type_script = "uid://cxylud6lossbd"
+
+[node name="GoToHome" type="Node" parent="BTRoot/Brain/Strategy/SigningMarket" unique_id=1382388484]
 script = ExtResource("11_ifqoa")
+metadata/_custom_type_script = "uid://cxylud6lossbd"
+
+[node name="StoreMarketData" type="Node" parent="BTRoot/Brain/Strategy/SigningMarket" unique_id=37260554]
+script = ExtResource("13_dhqnq")
+metadata/_custom_type_script = "uid://cxylud6lossbd"
+
+[node name="StrategyCalculation" type="Node" parent="BTRoot/Brain/Strategy" unique_id=1065306154]
+script = ExtResource("22_cijhl")
+metadata/_custom_type_script = "uid://duiwpr28l1r3v"
+
+[node name="GoToHome" type="Node" parent="BTRoot/Brain/Strategy/StrategyCalculation" unique_id=952176090]
+script = ExtResource("11_ifqoa")
+metadata/_custom_type_script = "uid://cxylud6lossbd"
+
+[node name="StrategyCalculate" type="Node" parent="BTRoot/Brain/Strategy/StrategyCalculation" unique_id=1608000260]
+process_thread_group = 2
+process_thread_group_order = 1
+process_thread_messages = 0
+script = ExtResource("23_dhqnq")
+metadata/_custom_type_script = "uid://cxylud6lossbd"
+
+[node name="GettingMarketInFormation" type="Node" parent="BTRoot/Brain/Strategy" unique_id=198663516]
+script = ExtResource("17_lm777")
+metadata/_custom_type_script = "uid://duiwpr28l1r3v"
+
+[node name="GoToMarket" type="Node" parent="BTRoot/Brain/Strategy/GettingMarketInFormation" unique_id=1420375673]
+script = ExtResource("32_ap1jx")
+metadata/_custom_type_script = "uid://cxylud6lossbd"
+
+[node name="GetMarketInfo" type="Node" parent="BTRoot/Brain/Strategy/GettingMarketInFormation" unique_id=110133668]
+script = ExtResource("12_0ny81")
+metadata/_custom_type_script = "uid://cxylud6lossbd"
+
+[node name="WithdrawShell" type="Node" parent="BTRoot/Brain/Strategy/GettingMarketInFormation" unique_id=400839930]
+script = ExtResource("31_7l7ua")
+metadata/_custom_type_script = "uid://cxylud6lossbd"
+
+[node name="GoToHome" type="Node" parent="BTRoot/Brain/Strategy/GettingMarketInFormation" unique_id=697803196]
+script = ExtResource("11_ifqoa")
+metadata/_custom_type_script = "uid://cxylud6lossbd"
+
+[node name="StoreItem" type="Node" parent="BTRoot/Brain/Strategy/GettingMarketInFormation" unique_id=2072570549]
+script = ExtResource("21_xjj7s")
+metadata/_custom_type_script = "uid://cxylud6lossbd"
+
+[node name="StoreMarketData" type="Node" parent="BTRoot/Brain/Strategy/GettingMarketInFormation" unique_id=428282517]
+script = ExtResource("13_dhqnq")
 metadata/_custom_type_script = "uid://cxylud6lossbd"
 
 [node name="BasicNeeds" type="Node" parent="BTRoot/Brain" unique_id=2102375247]
 script = ExtResource("3_msjyj")
 metadata/_custom_type_script = "uid://bvreg21bj52ar"
-
-[node name="Hunger" type="Node" parent="BTRoot/Brain/BasicNeeds" unique_id=838092925]
-script = ExtResource("5_y7sty")
-metadata/_custom_type_script = "uid://duiwpr28l1r3v"
-
-[node name="GoToHome" type="Node" parent="BTRoot/Brain/BasicNeeds/Hunger" unique_id=395454274]
-script = ExtResource("11_ifqoa")
-metadata/_custom_type_script = "uid://cxylud6lossbd"
-
-[node name="ConsumeFish" type="Node" parent="BTRoot/Brain/BasicNeeds/Hunger" unique_id=1720782565]
-script = ExtResource("9_s62pf")
-metadata/_custom_type_script = "uid://cxylud6lossbd"
-
-[node name="Rest" type="Node" parent="BTRoot/Brain/BasicNeeds" unique_id=1279673657]
-script = ExtResource("10_s62pf")
-metadata/_custom_type_script = "uid://duiwpr28l1r3v"
-
-[node name="GoToHome" type="Node" parent="BTRoot/Brain/BasicNeeds/Rest" unique_id=344024079]
-script = ExtResource("11_ifqoa")
-metadata/_custom_type_script = "uid://cxylud6lossbd"
-
-[node name="StoreItem" type="Node" parent="BTRoot/Brain/BasicNeeds/Rest" unique_id=1814129086]
-script = ExtResource("21_xjj7s")
-metadata/_custom_type_script = "uid://cxylud6lossbd"
-
-[node name="Sleep" type="Node" parent="BTRoot/Brain/BasicNeeds/Rest" unique_id=1167862780]
-script = ExtResource("11_hj8gw")
-metadata/_custom_type_script = "uid://cxylud6lossbd"
 
 [node name="Home" type="Node" parent="BTRoot/Brain/BasicNeeds" unique_id=1700203235]
 script = ExtResource("13_1we3c")
@@ -149,13 +195,202 @@ metadata/_custom_type_script = "uid://cxylud6lossbd"
 script = ExtResource("14_ifqoa")
 metadata/_custom_type_script = "uid://cxylud6lossbd"
 
-[node name="SellResourcesMargin" type="Node" parent="BTRoot/Brain" unique_id=1723334141]
+[node name="Rest" type="Node" parent="BTRoot/Brain/BasicNeeds" unique_id=1279673657]
+script = ExtResource("10_s62pf")
+metadata/_custom_type_script = "uid://duiwpr28l1r3v"
+
+[node name="GoToHome" type="Node" parent="BTRoot/Brain/BasicNeeds/Rest" unique_id=344024079]
+script = ExtResource("11_ifqoa")
+metadata/_custom_type_script = "uid://cxylud6lossbd"
+
+[node name="StoreItem" type="Node" parent="BTRoot/Brain/BasicNeeds/Rest" unique_id=1814129086]
+script = ExtResource("21_xjj7s")
+metadata/_custom_type_script = "uid://cxylud6lossbd"
+
+[node name="ConsumeFish" type="Node" parent="BTRoot/Brain/BasicNeeds/Rest" unique_id=1720782565]
+script = ExtResource("9_s62pf")
+metadata/_custom_type_script = "uid://cxylud6lossbd"
+
+[node name="Sleep" type="Node" parent="BTRoot/Brain/BasicNeeds/Rest" unique_id=1167862780]
+script = ExtResource("11_hj8gw")
+metadata/_custom_type_script = "uid://cxylud6lossbd"
+
+[node name="ForgotWork" type="Node" parent="BTRoot/Brain/BasicNeeds/Rest" unique_id=2022121407]
+script = ExtResource("32_y5wxg")
+metadata/_custom_type_script = "uid://cxylud6lossbd"
+
+[node name="Market" type="Node" parent="BTRoot/Brain" unique_id=1317262931]
 script = ExtResource("3_msjyj")
 metadata/_custom_type_script = "uid://bvreg21bj52ar"
 
-[node name="MainWorkCalculation" type="Node" parent="BTRoot/Brain" unique_id=1065306154]
-script = ExtResource("22_cijhl")
+[node name="BuyingFish" type="Node" parent="BTRoot/Brain/Market" unique_id=542905537]
+script = ExtResource("40_rd6ql")
+work = 7
+item_id = 3
+strategy_exception = 3
 metadata/_custom_type_script = "uid://duiwpr28l1r3v"
+
+[node name="RememberWork" type="Node" parent="BTRoot/Brain/Market/BuyingFish" unique_id=1645569014]
+script = ExtResource("31_vf6p5")
+work = 7
+metadata/_custom_type_script = "uid://cxylud6lossbd"
+
+[node name="GoToHome" type="Node" parent="BTRoot/Brain/Market/BuyingFish" unique_id=1184719364]
+script = ExtResource("11_ifqoa")
+metadata/_custom_type_script = "uid://cxylud6lossbd"
+
+[node name="StoreItem" type="Node" parent="BTRoot/Brain/Market/BuyingFish" unique_id=2078479109]
+script = ExtResource("21_xjj7s")
+metadata/_custom_type_script = "uid://cxylud6lossbd"
+
+[node name="PickShell" type="Node" parent="BTRoot/Brain/Market/BuyingFish" unique_id=1242438485]
+script = ExtResource("29_y5wxg")
+item_id = 3
+metadata/_custom_type_script = "uid://cxylud6lossbd"
+
+[node name="GoToMarket" type="Node" parent="BTRoot/Brain/Market/BuyingFish" unique_id=440735000]
+script = ExtResource("32_ap1jx")
+metadata/_custom_type_script = "uid://cxylud6lossbd"
+
+[node name="GetMarketInfo" type="Node" parent="BTRoot/Brain/Market/BuyingFish" unique_id=1963027847]
+script = ExtResource("12_0ny81")
+metadata/_custom_type_script = "uid://cxylud6lossbd"
+
+[node name="WithdrawShell" type="Node" parent="BTRoot/Brain/Market/BuyingFish" unique_id=818897434]
+script = ExtResource("31_7l7ua")
+metadata/_custom_type_script = "uid://cxylud6lossbd"
+
+[node name="BuyItem" type="Node" parent="BTRoot/Brain/Market/BuyingFish" unique_id=546839154]
+script = ExtResource("32_xrowx")
+item_id = 3
+metadata/_custom_type_script = "uid://cxylud6lossbd"
+
+[node name="GoToHome2" type="Node" parent="BTRoot/Brain/Market/BuyingFish" unique_id=242766592]
+script = ExtResource("11_ifqoa")
+metadata/_custom_type_script = "uid://cxylud6lossbd"
+
+[node name="StoreItem2" type="Node" parent="BTRoot/Brain/Market/BuyingFish" unique_id=269207774]
+script = ExtResource("21_xjj7s")
+metadata/_custom_type_script = "uid://cxylud6lossbd"
+
+[node name="StoreMarketData" type="Node" parent="BTRoot/Brain/Market/BuyingFish" unique_id=699268924]
+script = ExtResource("13_dhqnq")
+metadata/_custom_type_script = "uid://cxylud6lossbd"
+
+[node name="ForgotWork" type="Node" parent="BTRoot/Brain/Market/BuyingFish" unique_id=1750206677]
+script = ExtResource("32_y5wxg")
+metadata/_custom_type_script = "uid://cxylud6lossbd"
+
+[node name="ClearData" type="Node" parent="BTRoot/Brain/Market/BuyingFish" unique_id=1777195555]
+script = ExtResource("35_r3ysr")
+metadata/_custom_type_script = "uid://cxylud6lossbd"
+
+[node name="BuyingWood" type="Node" parent="BTRoot/Brain/Market" unique_id=1559825398]
+script = ExtResource("40_rd6ql")
+work = 7
+item_id = 1
+strategy_exception = 4
+metadata/_custom_type_script = "uid://duiwpr28l1r3v"
+
+[node name="RememberWork" type="Node" parent="BTRoot/Brain/Market/BuyingWood" unique_id=248042074]
+script = ExtResource("31_vf6p5")
+work = 7
+metadata/_custom_type_script = "uid://cxylud6lossbd"
+
+[node name="GoToHome" type="Node" parent="BTRoot/Brain/Market/BuyingWood" unique_id=198612227]
+script = ExtResource("11_ifqoa")
+metadata/_custom_type_script = "uid://cxylud6lossbd"
+
+[node name="StoreItem" type="Node" parent="BTRoot/Brain/Market/BuyingWood" unique_id=1085381412]
+script = ExtResource("21_xjj7s")
+metadata/_custom_type_script = "uid://cxylud6lossbd"
+
+[node name="PickShell" type="Node" parent="BTRoot/Brain/Market/BuyingWood" unique_id=526135128]
+script = ExtResource("29_y5wxg")
+item_id = 1
+metadata/_custom_type_script = "uid://cxylud6lossbd"
+
+[node name="GoToMarket" type="Node" parent="BTRoot/Brain/Market/BuyingWood" unique_id=1984917990]
+script = ExtResource("32_ap1jx")
+metadata/_custom_type_script = "uid://cxylud6lossbd"
+
+[node name="GetMarketInfo" type="Node" parent="BTRoot/Brain/Market/BuyingWood" unique_id=360808956]
+script = ExtResource("12_0ny81")
+metadata/_custom_type_script = "uid://cxylud6lossbd"
+
+[node name="WithdrawShell" type="Node" parent="BTRoot/Brain/Market/BuyingWood" unique_id=1893989640]
+script = ExtResource("31_7l7ua")
+metadata/_custom_type_script = "uid://cxylud6lossbd"
+
+[node name="BuyItem" type="Node" parent="BTRoot/Brain/Market/BuyingWood" unique_id=874296370]
+script = ExtResource("32_xrowx")
+item_id = 1
+metadata/_custom_type_script = "uid://cxylud6lossbd"
+
+[node name="GoToHome2" type="Node" parent="BTRoot/Brain/Market/BuyingWood" unique_id=71402677]
+script = ExtResource("11_ifqoa")
+metadata/_custom_type_script = "uid://cxylud6lossbd"
+
+[node name="StoreItem2" type="Node" parent="BTRoot/Brain/Market/BuyingWood" unique_id=497253204]
+script = ExtResource("21_xjj7s")
+metadata/_custom_type_script = "uid://cxylud6lossbd"
+
+[node name="StoreMarketData" type="Node" parent="BTRoot/Brain/Market/BuyingWood" unique_id=1655724509]
+script = ExtResource("13_dhqnq")
+metadata/_custom_type_script = "uid://cxylud6lossbd"
+
+[node name="ForgotWork" type="Node" parent="BTRoot/Brain/Market/BuyingWood" unique_id=1235300599]
+script = ExtResource("32_y5wxg")
+metadata/_custom_type_script = "uid://cxylud6lossbd"
+
+[node name="ClearData" type="Node" parent="BTRoot/Brain/Market/BuyingWood" unique_id=44660485]
+script = ExtResource("35_r3ysr")
+metadata/_custom_type_script = "uid://cxylud6lossbd"
+
+[node name="SellingResources" type="Node" parent="BTRoot/Brain/Market" unique_id=1402105953]
+script = ExtResource("34_qe0uf")
+metadata/_custom_type_script = "uid://duiwpr28l1r3v"
+
+[node name="RememberWork" type="Node" parent="BTRoot/Brain/Market/SellingResources" unique_id=1854581055]
+script = ExtResource("31_vf6p5")
+work = 6
+metadata/_custom_type_script = "uid://cxylud6lossbd"
+
+[node name="GoToHome" type="Node" parent="BTRoot/Brain/Market/SellingResources" unique_id=484120980]
+script = ExtResource("11_ifqoa")
+metadata/_custom_type_script = "uid://cxylud6lossbd"
+
+[node name="StoreItem" type="Node" parent="BTRoot/Brain/Market/SellingResources" unique_id=312705008]
+script = ExtResource("21_xjj7s")
+metadata/_custom_type_script = "uid://cxylud6lossbd"
+
+[node name="PickMarginResources" type="Node" parent="BTRoot/Brain/Market/SellingResources" unique_id=2119954662]
+script = ExtResource("32_baacg")
+metadata/_custom_type_script = "uid://cxylud6lossbd"
+
+[node name="GoToMarket" type="Node" parent="BTRoot/Brain/Market/SellingResources" unique_id=1948484565]
+script = ExtResource("32_ap1jx")
+metadata/_custom_type_script = "uid://cxylud6lossbd"
+
+[node name="GetMarketInfo" type="Node" parent="BTRoot/Brain/Market/SellingResources" unique_id=82159129]
+script = ExtResource("12_0ny81")
+metadata/_custom_type_script = "uid://cxylud6lossbd"
+
+[node name="SellResource" type="Node" parent="BTRoot/Brain/Market/SellingResources" unique_id=635310391]
+script = ExtResource("33_rd6ql")
+metadata/_custom_type_script = "uid://cxylud6lossbd"
+
+[node name="GoToHome2" type="Node" parent="BTRoot/Brain/Market/SellingResources" unique_id=95295921]
+script = ExtResource("11_ifqoa")
+metadata/_custom_type_script = "uid://cxylud6lossbd"
+
+[node name="StoreMarketData" type="Node" parent="BTRoot/Brain/Market/SellingResources" unique_id=204509602]
+script = ExtResource("13_dhqnq")
+metadata/_custom_type_script = "uid://cxylud6lossbd"
+
+[node name="ForgotWork" type="Node" parent="BTRoot/Brain/Market/SellingResources" unique_id=1528918131]
+script = ExtResource("32_y5wxg")
+metadata/_custom_type_script = "uid://cxylud6lossbd"
 
 [node name="Working" type="Node" parent="BTRoot/Brain" unique_id=972321984]
 script = ExtResource("21_m1c23")
@@ -173,20 +408,21 @@ metadata/_custom_type_script = "uid://cxylud6lossbd"
 script = ExtResource("21_xjj7s")
 metadata/_custom_type_script = "uid://cxylud6lossbd"
 
-[node name="Food" type="Node" parent="BTRoot/Brain/Working" unique_id=1017116063]
+[node name="Fish" type="Node" parent="BTRoot/Brain/Working" unique_id=1017116063]
 script = ExtResource("9_fshwj")
 metadata/_custom_type_script = "uid://duiwpr28l1r3v"
 
-[node name="FindFish" type="Node" parent="BTRoot/Brain/Working/Food" unique_id=1924536904]
+[node name="FindFish" type="Node" parent="BTRoot/Brain/Working/Fish" unique_id=1924536904]
 script = ExtResource("10_fshwj")
 nat_resource = "Fish"
+work_type = 2
 metadata/_custom_type_script = "uid://cxylud6lossbd"
 
-[node name="GoToFish" type="Node" parent="BTRoot/Brain/Working/Food" unique_id=2055003925]
+[node name="GoToFish" type="Node" parent="BTRoot/Brain/Working/Fish" unique_id=2055003925]
 script = ExtResource("11_givvw")
 metadata/_custom_type_script = "uid://cxylud6lossbd"
 
-[node name="CatchFish" type="Node" parent="BTRoot/Brain/Working/Food" unique_id=237131036]
+[node name="CatchFish" type="Node" parent="BTRoot/Brain/Working/Fish" unique_id=237131036]
 script = ExtResource("13_jevfg")
 metadata/_custom_type_script = "uid://cxylud6lossbd"
 
@@ -197,6 +433,7 @@ metadata/_custom_type_script = "uid://duiwpr28l1r3v"
 [node name="FindTree" type="Node" parent="BTRoot/Brain/Working/Wood" unique_id=1436824750]
 script = ExtResource("10_fshwj")
 nat_resource = "Tree"
+work_type = 3
 metadata/_custom_type_script = "uid://cxylud6lossbd"
 
 [node name="GoToTree" type="Node" parent="BTRoot/Brain/Working/Wood" unique_id=1020776]
@@ -214,6 +451,7 @@ metadata/_custom_type_script = "uid://duiwpr28l1r3v"
 [node name="FindShell" type="Node" parent="BTRoot/Brain/Working/Shells" unique_id=830656821]
 script = ExtResource("10_fshwj")
 nat_resource = "Shell"
+work_type = 1
 metadata/_custom_type_script = "uid://cxylud6lossbd"
 
 [node name="GoToShell" type="Node" parent="BTRoot/Brain/Working/Shells" unique_id=772109984]
@@ -223,23 +461,3 @@ metadata/_custom_type_script = "uid://cxylud6lossbd"
 [node name="PickShell" type="Node" parent="BTRoot/Brain/Working/Shells" unique_id=2093836288]
 script = ExtResource("13_jevfg")
 metadata/_custom_type_script = "uid://cxylud6lossbd"
-
-[node name="Market" type="Node" parent="BTRoot/Brain" unique_id=1282510010]
-script = ExtResource("3_msjyj")
-metadata/_custom_type_script = "uid://bvreg21bj52ar"
-
-[node name="SigningMarket" type="Node" parent="BTRoot/Brain/Market" unique_id=1142649401]
-script = ExtResource("31_s0qm5")
-metadata/_custom_type_script = "uid://duiwpr28l1r3v"
-
-[node name="GoToMarket" type="Node" parent="BTRoot/Brain/Market/SigningMarket" unique_id=184591255]
-script = ExtResource("32_ap1jx")
-metadata/_custom_type_script = "uid://cxylud6lossbd"
-
-[node name="SignMarket" type="Node" parent="BTRoot/Brain/Market/SigningMarket" unique_id=341596534]
-script = ExtResource("33_f2vu1")
-metadata/_custom_type_script = "uid://cxylud6lossbd"
-
-[node name="SellingResources" type="Node" parent="BTRoot/Brain/Market" unique_id=1402105953]
-script = ExtResource("34_qe0uf")
-metadata/_custom_type_script = "uid://duiwpr28l1r3v"

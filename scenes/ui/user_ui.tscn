@@ -2,26 +2,20 @@
 
 [ext_resource type="Script" uid="uid://ctij887407qpc" path="res://scripts/ui/user_ui.gd" id="1_4d063"]
 [ext_resource type="Script" uid="uid://cefp2xjdy4w3n" path="res://scripts/ui/main_menu.gd" id="2_05dir"]
+[ext_resource type="PackedScene" uid="uid://dlwq4kmdb3bhs" path="res://addons/easy_charts/control_charts/chart.tscn" id="3_q8f21"]
+[ext_resource type="Script" uid="uid://b1qgdt64hx1jo" path="res://scripts/ui/time_scale_panel.gd" id="3_rdy3e"]
+[ext_resource type="Script" uid="uid://c7j0ap3nnalpp" path="res://scripts/ui/market.gd" id="5_hl28d"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_05dir"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_yo57u"]
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_hl28d"]
 font_size = 24
 
 [node name="UserUI" type="CanvasLayer" unique_id=1642919888]
 script = ExtResource("1_4d063")
-
-[node name="MenuButton" type="Button" parent="." unique_id=1134610087]
-unique_name_in_owner = true
-anchors_preset = -1
-anchor_left = 0.009000001
-anchor_top = 0.841
-anchor_right = 0.147
-anchor_bottom = 0.98300004
-offset_left = 0.35999966
-offset_top = -0.14001465
-offset_right = -0.47483826
-offset_bottom = 0.17999268
-text = "Menu
-"
 
 [node name="Control" type="Control" parent="." unique_id=489340257]
 layout_mode = 3
@@ -37,23 +31,26 @@ mouse_filter = 2
 metadata/_edit_lock_ = true
 
 [node name="MainMenu" type="Panel" parent="Control" unique_id=286325812]
+unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 0.34302327
-anchor_bottom = 1.0
+anchor_left = 0.1627907
+anchor_top = -0.025316456
+anchor_right = 1.0
+anchor_bottom = 1.1518987
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_05dir")
 metadata/_edit_use_anchors_ = true
-metadata/_edit_lock_ = true
 
 [node name="Statistic" type="Panel" parent="Control/MainMenu" unique_id=1544545140]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.016666666
 anchor_top = 0.012658228
-anchor_right = 0.966
-anchor_bottom = 0.98700005
+anchor_right = 0.32037553
+anchor_bottom = 0.62336564
 offset_right = 5.297333
 offset_bottom = 0.21594238
 metadata/_edit_use_anchors_ = true
@@ -118,48 +115,182 @@ text = "Fish: 0"
 label_settings = SubResource("LabelSettings_05dir")
 metadata/_edit_use_anchors_ = true
 
-[node name="Time" type="Label" parent="Control" unique_id=135968730]
+[node name="TotalCowrie" type="Label" parent="Control/MainMenu/Statistic" unique_id=1899563298]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.7124187
-anchor_top = 1.136076
-anchor_right = 0.82893026
-anchor_bottom = 1.1917595
-offset_left = -0.28808594
-offset_right = 0.61035156
-offset_bottom = -0.3088913
+anchor_left = 0.0007646198
+anchor_top = 0.33694553
+anchor_right = 0.9740979
+anchor_bottom = 0.39214033
+offset_left = 7.786667
+offset_top = 0.44155884
+offset_right = 7.786682
+offset_bottom = 0.44155884
+text = "Total Cowrie: 0"
+label_settings = SubResource("LabelSettings_05dir")
+metadata/_edit_use_anchors_ = true
+
+[node name="Chart" parent="Control/MainMenu" unique_id=256980895 instance=ExtResource("3_q8f21")]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.33116883
+anchor_top = 0.010752688
+anchor_right = 0.9935065
+anchor_bottom = 0.6236559
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="ChartCowrie" parent="Control/MainMenu" unique_id=894306942 instance=ExtResource("3_q8f21")]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.33116883
+anchor_top = 0.6344086
+anchor_right = 0.9935065
+anchor_bottom = 0.9892475
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="ControlBar" type="Panel" parent="Control" unique_id=575588684]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.011627906
+anchor_top = -0.025316456
+anchor_right = 0.12209302
+anchor_bottom = 0.9999999
+offset_bottom = 6.1035156e-05
+metadata/_edit_use_anchors_ = true
+
+[node name="TimeScalePanel" type="Panel" parent="Control/ControlBar" unique_id=1365479004]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.055555552
+anchor_top = 0.14814815
+anchor_right = 0.48290595
+anchor_bottom = 0.8518519
+script = ExtResource("3_rdy3e")
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="Control/ControlBar/TimeScalePanel" unique_id=563722159]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.125
+anchor_top = 0.018867925
+anchor_right = 0.875
+anchor_bottom = 0.13207547
+text = "x1"
+metadata/_edit_use_anchors_ = true
+
+[node name="Button2" type="Button" parent="Control/ControlBar/TimeScalePanel" unique_id=153054523]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.125
+anchor_top = 0.1509434
+anchor_right = 0.875
+anchor_bottom = 0.26415095
+text = "x2"
+metadata/_edit_use_anchors_ = true
+
+[node name="Button3" type="Button" parent="Control/ControlBar/TimeScalePanel" unique_id=169907347]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.125
+anchor_top = 0.28301886
+anchor_right = 0.875
+anchor_bottom = 0.3962264
+text = "x3"
+metadata/_edit_use_anchors_ = true
+
+[node name="Button4" type="Button" parent="Control/ControlBar/TimeScalePanel" unique_id=225332683]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.125
+anchor_top = 0.41509435
+anchor_right = 0.875
+anchor_bottom = 0.5283019
+text = "x4"
+metadata/_edit_use_anchors_ = true
+
+[node name="Button5" type="Button" parent="Control/ControlBar/TimeScalePanel" unique_id=1653982043]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.125
+anchor_top = 0.5471698
+anchor_right = 0.875
+anchor_bottom = 0.6603774
+text = "x6"
+metadata/_edit_use_anchors_ = true
+
+[node name="Button6" type="Button" parent="Control/ControlBar/TimeScalePanel" unique_id=1060843024]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.125
+anchor_top = 0.67924535
+anchor_right = 0.875
+anchor_bottom = 0.7924528
+text = "x12"
+metadata/_edit_use_anchors_ = true
+
+[node name="Button7" type="Button" parent="Control/ControlBar/TimeScalePanel" unique_id=2093464391]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.13000003
+anchor_top = 0.8113208
+anchor_right = 0.91846156
+anchor_bottom = 0.9245283
+text = "x24"
+metadata/_edit_use_anchors_ = true
+
+[node name="Time" type="Label" parent="Control/ControlBar" unique_id=135968730]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.086419754
+anchor_right = 0.50846356
+anchor_bottom = 0.12191358
 text = "Day: 0"
 label_settings = SubResource("LabelSettings_05dir")
 horizontal_alignment = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="TimeSecond" type="Label" parent="Control" unique_id=465761236]
+[node name="TimeSecond" type="Label" parent="Control/ControlBar" unique_id=465761236]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.9156977
-anchor_top = 1.0617088
-anchor_right = 1.0028442
-anchor_bottom = 1.1155063
+anchor_left = 0.043478265
+anchor_top = 0.8765432
+anchor_right = 0.3941727
+anchor_bottom = 0.912037
 text = "0 s"
 label_settings = SubResource("LabelSettings_05dir")
 horizontal_alignment = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="ProgressBar" type="ProgressBar" parent="Control" unique_id=1764591332]
+[node name="ProgressBar" type="ProgressBar" parent="Control/ControlBar" unique_id=1764591332]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.84011626
-anchor_top = 1.1234177
-anchor_right = 1.0087209
-anchor_bottom = 1.199367
+anchor_left = 0.6111111
+anchor_top = 0.14814813
+anchor_right = 0.8888889
+anchor_bottom = 0.8518519
 max_value = 24.0
+fill_mode = 3
 show_percentage = false
 metadata/_edit_use_anchors_ = true
 
-[node name="SimHours" type="Label" parent="Control/ProgressBar" unique_id=2115952445]
+[node name="SimHours" type="Label" parent="Control/ControlBar/ProgressBar" unique_id=2115952445]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -174,3 +305,278 @@ grow_vertical = 2
 text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Market" type="Panel" parent="Control" unique_id=310160895]
+unique_name_in_owner = true
+z_index = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1627907
+anchor_top = -0.025316456
+anchor_right = 1.0
+anchor_bottom = 1.1518987
+script = ExtResource("5_hl28d")
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
+
+[node name="ItemList" type="Panel" parent="Control/Market" unique_id=1277448196]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.01388888
+anchor_top = 0.06451613
+anchor_right = 0.12427849
+anchor_bottom = 0.9892473
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Market/ItemList" unique_id=1412237375]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.006536
+anchor_bottom = 1.0
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
+
+[node name="FishOrderPanel" type="Panel" parent="Control/Market" unique_id=1811441480]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.13194445
+anchor_top = 0.06451613
+anchor_right = 0.5555556
+anchor_bottom = 0.9892473
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
+
+[node name="FishOrderList" type="VBoxContainer" parent="Control/Market/FishOrderPanel" unique_id=842463957]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.032786883
+anchor_top = 0.023255814
+anchor_right = 0.9672131
+anchor_bottom = 0.9767442
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
+
+[node name="1" type="Label" parent="Control/Market/FishOrderPanel/FishOrderList" unique_id=373525481]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_yo57u")
+horizontal_alignment = 2
+
+[node name="2" type="Label" parent="Control/Market/FishOrderPanel/FishOrderList" unique_id=1017849062]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_yo57u")
+horizontal_alignment = 2
+
+[node name="3" type="Label" parent="Control/Market/FishOrderPanel/FishOrderList" unique_id=1176117069]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_yo57u")
+horizontal_alignment = 2
+
+[node name="4" type="Label" parent="Control/Market/FishOrderPanel/FishOrderList" unique_id=351704614]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_yo57u")
+horizontal_alignment = 2
+
+[node name="5" type="Label" parent="Control/Market/FishOrderPanel/FishOrderList" unique_id=1970888009]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_yo57u")
+horizontal_alignment = 2
+
+[node name="6" type="Label" parent="Control/Market/FishOrderPanel/FishOrderList" unique_id=292931769]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_yo57u")
+horizontal_alignment = 2
+
+[node name="7" type="Label" parent="Control/Market/FishOrderPanel/FishOrderList" unique_id=1472740800]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_yo57u")
+horizontal_alignment = 2
+
+[node name="8" type="Label" parent="Control/Market/FishOrderPanel/FishOrderList" unique_id=1506663534]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_yo57u")
+horizontal_alignment = 2
+
+[node name="9" type="Label" parent="Control/Market/FishOrderPanel/FishOrderList" unique_id=1255616885]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_yo57u")
+horizontal_alignment = 2
+
+[node name="10" type="Label" parent="Control/Market/FishOrderPanel/FishOrderList" unique_id=1188181551]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_yo57u")
+horizontal_alignment = 2
+
+[node name="11" type="Label" parent="Control/Market/FishOrderPanel/FishOrderList" unique_id=558276435]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_yo57u")
+horizontal_alignment = 2
+
+[node name="12" type="Label" parent="Control/Market/FishOrderPanel/FishOrderList" unique_id=1841882164]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_yo57u")
+horizontal_alignment = 2
+
+[node name="13" type="Label" parent="Control/Market/FishOrderPanel/FishOrderList" unique_id=605733190]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_yo57u")
+horizontal_alignment = 2
+
+[node name="14" type="Label" parent="Control/Market/FishOrderPanel/FishOrderList" unique_id=365771343]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_yo57u")
+horizontal_alignment = 2
+
+[node name="15" type="Label" parent="Control/Market/FishOrderPanel/FishOrderList" unique_id=630998774]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_yo57u")
+horizontal_alignment = 2
+
+[node name="WoodOrderPanel" type="Panel" parent="Control/Market" unique_id=1899958026]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5625
+anchor_top = 0.06451613
+anchor_right = 0.9861111
+anchor_bottom = 0.9892473
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
+
+[node name="WoodOrderList" type="VBoxContainer" parent="Control/Market/WoodOrderPanel" unique_id=2128768829]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.032786883
+anchor_top = 0.023255814
+anchor_right = 0.9672131
+anchor_bottom = 0.9767442
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
+
+[node name="1" type="Label" parent="Control/Market/WoodOrderPanel/WoodOrderList" unique_id=1506155166]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_yo57u")
+horizontal_alignment = 2
+
+[node name="2" type="Label" parent="Control/Market/WoodOrderPanel/WoodOrderList" unique_id=1322361637]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_yo57u")
+horizontal_alignment = 2
+
+[node name="3" type="Label" parent="Control/Market/WoodOrderPanel/WoodOrderList" unique_id=380246631]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_yo57u")
+horizontal_alignment = 2
+
+[node name="4" type="Label" parent="Control/Market/WoodOrderPanel/WoodOrderList" unique_id=475164247]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_yo57u")
+horizontal_alignment = 2
+
+[node name="5" type="Label" parent="Control/Market/WoodOrderPanel/WoodOrderList" unique_id=433679482]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_yo57u")
+horizontal_alignment = 2
+
+[node name="6" type="Label" parent="Control/Market/WoodOrderPanel/WoodOrderList" unique_id=2059232402]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_yo57u")
+horizontal_alignment = 2
+
+[node name="7" type="Label" parent="Control/Market/WoodOrderPanel/WoodOrderList" unique_id=1691401298]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_yo57u")
+horizontal_alignment = 2
+
+[node name="8" type="Label" parent="Control/Market/WoodOrderPanel/WoodOrderList" unique_id=606036188]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_yo57u")
+horizontal_alignment = 2
+
+[node name="9" type="Label" parent="Control/Market/WoodOrderPanel/WoodOrderList" unique_id=1502131728]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_yo57u")
+horizontal_alignment = 2
+
+[node name="10" type="Label" parent="Control/Market/WoodOrderPanel/WoodOrderList" unique_id=47351002]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_yo57u")
+horizontal_alignment = 2
+
+[node name="11" type="Label" parent="Control/Market/WoodOrderPanel/WoodOrderList" unique_id=1217724854]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_yo57u")
+horizontal_alignment = 2
+
+[node name="12" type="Label" parent="Control/Market/WoodOrderPanel/WoodOrderList" unique_id=1093528076]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_yo57u")
+horizontal_alignment = 2
+
+[node name="13" type="Label" parent="Control/Market/WoodOrderPanel/WoodOrderList" unique_id=1241065386]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_yo57u")
+horizontal_alignment = 2
+
+[node name="14" type="Label" parent="Control/Market/WoodOrderPanel/WoodOrderList" unique_id=5529997]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_yo57u")
+horizontal_alignment = 2
+
+[node name="15" type="Label" parent="Control/Market/WoodOrderPanel/WoodOrderList" unique_id=2125821917]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_yo57u")
+horizontal_alignment = 2
+
+[node name="FishLabel" type="Label" parent="Control/Market" unique_id=1172356283]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.2013889
+anchor_top = 0.010752688
+anchor_right = 0.4722222
+anchor_bottom = 0.05645161
+text = "Fish"
+label_settings = SubResource("LabelSettings_hl28d")
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="WoodLabel" type="Label" parent="Control/Market" unique_id=1748480457]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.6388889
+anchor_top = 0.010752688
+anchor_right = 0.9097222
+anchor_bottom = 0.05645161
+text = "Wood"
+label_settings = SubResource("LabelSettings_hl28d")
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="MenuButton" type="Button" parent="Control" unique_id=1134610087]
+unique_name_in_owner = true
+z_index = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.011627907
+anchor_top = 1.0126582
+anchor_right = 0.05232558
+anchor_bottom = 1.1213001
+text = "Menu
+"
+metadata/_edit_use_anchors_ = true
+
+[node name="MarketButton" type="Button" parent="Control" unique_id=2104080477]
+unique_name_in_owner = true
+z_index = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.058139537
+anchor_top = 1.0126582
+anchor_right = 0.12209302
+anchor_bottom = 1.1213001
+text = "Market"
+metadata/_edit_use_anchors_ = true

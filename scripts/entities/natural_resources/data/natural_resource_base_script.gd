@@ -34,12 +34,13 @@ func gather() -> bool:
 	if drop_amount == 0 :
 		return false
 
-	NatResourceManager.unregister_resource(self)
+	NatResourceManager.unregister_resource(self,natural_resource_data.name)
 	TilesManager.tiles[biome][tile_map.local_to_map(global_position)] = true
-	gatherer.add_item(natural_resource_data.item_name,natural_resource_data.drop_amount)
+	gatherer.add_item(natural_resource_data.item_name, natural_resource_data.drop_amount)
 	gatherer.count_gather_resource(natural_resource_data.item_name,natural_resource_data.drop_amount)
 	gatherer.active_energy -= strength_rate * natural_resource_data.gather_time * natural_resource_data.gather_hardness
 	gatherer.work_time += natural_resource_data.gather_time * (2.0 - strength_rate)
 	drop_amount = 0
+	Statistic.nat_resource_pick.emit(natural_resource_data.item_name, natural_resource_data.drop_amount)
 	self.queue_free()
 	return true
