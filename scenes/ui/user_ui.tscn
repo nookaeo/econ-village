@@ -434,6 +434,15 @@ layout_mode = 2
 label_settings = SubResource("LabelSettings_yo57u")
 horizontal_alignment = 2
 
+[node name="PriceAmountLabel" type="Label" parent="Control/Market/FishOrderPanel" unique_id=734007148]
+layout_mode = 0
+anchor_left = 0.7704918
+anchor_top = -0.034883723
+anchor_right = 0.9897541
+anchor_bottom = -0.0014534884
+text = "Amount/Price"
+metadata/_edit_use_anchors_ = true
+
 [node name="WoodOrderPanel" type="Panel" parent="Control/Market" unique_id=1899958026]
 layout_mode = 1
 anchors_preset = -1
@@ -531,6 +540,16 @@ horizontal_alignment = 2
 layout_mode = 2
 label_settings = SubResource("LabelSettings_yo57u")
 horizontal_alignment = 2
+
+[node name="PriceAmountLabel" type="Label" parent="Control/Market/WoodOrderPanel" unique_id=84431241]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.7704918
+anchor_top = -0.034883723
+anchor_right = 0.9897542
+anchor_bottom = -0.0014534884
+text = "Amount/Price"
+metadata/_edit_use_anchors_ = true
 
 [node name="FishLabel" type="Label" parent="Control/Market" unique_id=1172356283]
 layout_mode = 1
