@@ -44,12 +44,15 @@ var role_responsibilities :Dictionary = {
 	Enums.Strategy.SelfSufficient: {
 		"provider":[Enums.WorkType.CatchFish, Enums.WorkType.CutTree, Enums.WorkType.FindShell],
 		"supporter":[Enums.WorkType.MakeHouse,Enums.WorkType.SellResource,Enums.WorkType.BuyResource]},
+		
 	Enums.Strategy.ShellFinder: {
 		"provider":[Enums.WorkType.FindShell],
 		"supporter":[Enums.WorkType.MakeHouse,Enums.WorkType.SellResource,Enums.WorkType.BuyResource]},
+		
 	Enums.Strategy.FishCatcher: {
 		"provider":[Enums.WorkType.CatchFish],
 		"supporter":[Enums.WorkType.MakeHouse,Enums.WorkType.SellResource,Enums.WorkType.BuyResource]},
+		
 	Enums.Strategy.Lumberjack: {
 		"provider":[Enums.WorkType.CutTree],
 		"supporter":[Enums.WorkType.MakeHouse,Enums.WorkType.SellResource,Enums.WorkType.BuyResource]},
@@ -71,14 +74,21 @@ var market_data :Dictionary
 	
 func _ready() -> void:
 	var current_tile :Vector2i = tile_map.local_to_map(global_position)
+	
 	global_position = tile_map.map_to_local(current_tile)
+	
 	CoreSignal.current_second.connect(_count_time)
 	CoreSignal.birth.emit(self, lifespan)
 	CoreSignal.day_pass.connect(_pass_day)
+	
 	_base_stats_init()
+	
 	_stats_calculate()
+	
 	set_energy()
+	
 	_change_texture()
+	
 	#_dump_stats()
 
 func _process(delta: float) -> void:
@@ -93,11 +103,12 @@ func _physics_process(delta :float) -> void:
 		if global_position == target_position:
 			is_moving = false
 			return
+			
 		global_position = global_position.move_toward(target_position, base_speed * delta)
 		active_energy -= delta * strength_index * hardness
 		
-		
-			
+	
+
 #///////////////////////////////////////////////////////////////////////////#
 
 func _pass_day() -> void:
@@ -110,6 +121,7 @@ func _base_stats_init() -> void:
 	var second_sex_chromosomes :SexChromosome = genetics.sex.second
 	var status_average_index :float
 	var sum_strength_base :float = first_sex_chromosomes.strength_base + second_sex_chromosomes.strength_base
+	
 	sum_sry_gene_power = first_sex_chromosomes.sry_gene_power + second_sex_chromosomes.sry_gene_power
 	var sum_lifespan :int = first_sex_chromosomes.lifespan + second_sex_chromosomes.lifespan
 	var sum_kid_phase :int = first_sex_chromosomes.kid_phase + second_sex_chromosomes.kid_phase
@@ -118,16 +130,19 @@ func _base_stats_init() -> void:
 	if first_sex_chromosomes.sry_gene_power + second_sex_chromosomes.sry_gene_power > 0 :
 		status_average_index = 1
 		sex = "male"
+		
 		if second_sex_chromosomes.sry_gene_power > 0:
 			sprite.texture = second_sex_chromosomes.kid_texture
 		else:
 			sprite.texture = first_sex_chromosomes.kid_texture
+			
 	else:
 		status_average_index = 0.5
 		sex = "female"
 		sprite.texture = first_sex_chromosomes.kid_texture
 		
 	add_to_group(sex)
+	
 	lifespan = int(sum_lifespan * (rate - (sum_sry_gene_power * 0.25)) * status_average_index)
 	kid_phase = int(sum_kid_phase * status_average_index)
 	max_strength = sum_strength_base * (rate + sum_sry_gene_power) * status_average_index
@@ -138,6 +153,7 @@ func _stats_calculate() -> void:
 	strength = floorf(max_strength * (0.1 + (age / kid_phase) * 0.9)) 
 	energy_drain_rate = floorf(strength * energy_drain_multiplier)
 	base_speed = floorf(clamp(floorf((3 * strength) + 200),0,1000))
+	
 	max_active_energy = strength
 	max_passive_energy = floorf(strength * passive_energy_multiplier)
 	weight_handle = floorf(strength / 4.0)
@@ -155,11 +171,12 @@ func _aging() -> void:
 	_change_texture()
 	
 func _change_texture():
-	if age == kid_phase:
-		if genetics.sex.first.sry_gene_power > 0:
-			sprite.texture = genetics.sex.first.adult_texture
-		else:
-			sprite.texture = genetics.sex.second.adult_texture
+	if age != kid_phase:
+		return
+	if genetics.sex.first.sry_gene_power > 0:
+		sprite.texture = genetics.sex.first.adult_texture
+	else:
+		sprite.texture = genetics.sex.second.adult_texture
 	
 func _dump_stats():
 	print(sex," age:",age,"/",lifespan," kid_phase:",kid_phase," strength:",strength,"/",max_strength," active_energy:",active_energy,"/",max_active_energy," passive_energy:",passive_energy,"/",max_passive_energy," energy_drain_rate:",energy_drain_rate," base_speed:",base_speed)

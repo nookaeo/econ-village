@@ -11,6 +11,7 @@ func _ready() -> void:
 func create_house_site(agent :Villagent) -> void:
 	var house :House = house_scene.instantiate()
 	var tile_pos = tile_map.local_to_map(agent.position)
+	
 	house.position = tile_map.map_to_local(tile_pos)
 	building_directory.add_child(house)
 	agent.home = house

@@ -25,10 +25,12 @@ func _ready() -> void:
 		var agent :Villagent = agent_scene.instantiate()
 		random_sex = rng.randi_range(0,1)
 		agent.genetics.sex.first = _seeded_pick(x_sex_chromosomes)
+		
 		if random_sex == 0:
 			agent.genetics.sex.second = _seeded_pick(y_sex_chromosomes)
 		elif random_sex == 1:
 			agent.genetics.sex.second = _seeded_pick(x_sex_chromosomes)
+			
 		agent.age += 576
 		agent.tile_map = tilemap
 		agent.name = str("villagent_",i)
@@ -54,8 +56,10 @@ func get_placable_tiles(map :TileMapLayer) -> Array:
 	var placable :Array = []
 	for pos in map.get_used_cells():
 		var data :TileData = map.get_cell_tile_data(pos)
+		
 		if not data.get_custom_data("grass"):
 			continue
+			
 		placable.append(pos)
 	return placable
 	

@@ -11,9 +11,11 @@ func _ready() -> void:
 	
 func get_biome_tiles(biome :String,map :TileMapLayer) -> Dictionary:
 	var _tiles :Dictionary = {}
+	
 	for pos in map.get_used_cells():
 		var data :TileData = map.get_cell_tile_data(pos)
 		if not data.get_custom_data(biome):
 			continue
+			
 		_tiles[pos] = true
 	return _tiles
