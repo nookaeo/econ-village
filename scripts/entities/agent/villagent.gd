@@ -207,6 +207,7 @@ func remove_item(item_name :Enums.ItemId,amount :int):
 		return
 	if inventory[item_name] < amount:
 		return
+		
 	inventory[item_name] -= amount
 	calculate_weight()
 	
@@ -234,8 +235,10 @@ func _calculate_statistic() -> void:
 	for item in gather_count:
 		if not gather_statistic.has(item):
 			gather_statistic[item] = [] 
+			
 		#day_stats[item] = gather_count[item]
 		gather_statistic[item].push_front(gather_count[item])
+		
 		if gather_statistic[item].size() > 3:
 			gather_statistic[item].resize(3)
 	gather_count.clear()
