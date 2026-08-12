@@ -8,7 +8,7 @@ func tick(_actor: Node, _blackboard :Node) -> Status:
 	var resource_consumed_worth :float = 0
 	var best_resource :Enums.ItemId
 	var price_change_sensitivity :float = 0.5
-	var base_magin :float = 0.4
+	var base_magin :float = 0.2
 	var margin :float = 0.0
 	
 	# and agent.gather_statistic[resource_id] >= household_resource_consumed[resource_id] * household_resource_consumed.size() 
@@ -33,8 +33,10 @@ func tick(_actor: Node, _blackboard :Node) -> Status:
 		
 		if resource_id != Enums.ItemId.Shells and agent.home.market_data[resource_id]["SellAmount"] > 0:
 			resource_price = agent.home.market_data[resource_id]["LastPrice"]
+			
 		elif resource_id != Enums.ItemId.Shells and agent.home.market_data[resource_id]["SellAmount"] == 0 and agent.home.market_data[resource_id]["LastPrice"] > 0:
 			resource_price = agent.home.market_data[resource_id]["LastPrice"] * 1.1
+			
 		elif resource_id != Enums.ItemId.Shells and agent.home.market_data[resource_id]["SellAmount"] == 0 and agent.home.market_data[resource_id]["LastPrice"] == 0 : 
 			if agent.gather_statistic.has(Enums.ItemId.Shells) and agent.gather_statistic.has(resource_id):
 				resource_price = int((float(Math.find_median(agent.gather_statistic[Enums.ItemId.Shells])) / float(Math.find_median(agent.gather_statistic[resource_id])))*2)
@@ -72,13 +74,18 @@ func tick(_actor: Node, _blackboard :Node) -> Status:
 				Enums.ItemId.Shells:
 					if agent.home.market_data[Enums.ItemId.Fish]["LeftOver"] > 0 and agent.home.market_data[Enums.ItemId.Wood]["LeftOver"] > 0:
 						agent.home.strategy_mode = Enums.Strategy.ShellFinder
+						agent.count_gather_resource(Enums.ItemId.Shells, 0)
+						
 				Enums.ItemId.Wood:
 					if agent.home.market_data[Enums.ItemId.Fish]["LeftOver"] > 0:
 						agent.home.strategy_mode = Enums.Strategy.Lumberjack
+						agent.count_gather_resource(Enums.ItemId.Wood, 0)
+						
 				Enums.ItemId.Fish:
 					if agent.home.market_data[Enums.ItemId.Wood]["LeftOver"] > 0:
 						agent.home.strategy_mode = Enums.Strategy.FishCatcher
-		
+						agent.count_gather_resource(Enums.ItemId.Fish, 0)
+	
 		
 		
 	
