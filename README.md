@@ -16,7 +16,7 @@ A small Godot-based economic simulation that models a village of agents, buildin
 - Integrated easy_charts addon for visualization
 
 ## Requirements
-- Godot Engine 4.6 (project lists 4.6 in `project.godot`)
+- Godot Engine 4.x (project lists 4.x in `project.godot`)
 - No other external runtimes. The included `addons/easy_charts` provides charting features.
 
 ## Quick start (open and run)
