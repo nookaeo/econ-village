@@ -8,6 +8,7 @@ var time_count :float = 0
 var death_list :Dictionary
 var second :float = 0
 var second_count :float = 0
+
 ##############################################################
 func _ready() -> void:
 	Engine.time_scale = time_scale

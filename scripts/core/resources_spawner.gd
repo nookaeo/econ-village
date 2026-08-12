@@ -26,8 +26,8 @@ func _resources_spawn() -> void:
 	
 	_resource_spawn(fish_scene, world_setting.fish_spawn_rate,"water")
 	
-	#_resource_spawn(cowrie_shell_scene, world_setting.cowrie_spawn_rate,"sand")
-	_resource_spawn(cowrie_shell_scene, int(world_setting.cowrie_spawn_rate - ( 10 * int(day_pass / 20.0) )),"sand")
+	_resource_spawn(cowrie_shell_scene, world_setting.cowrie_spawn_rate,"sand")
+	#_resource_spawn(cowrie_shell_scene, int(world_setting.cowrie_spawn_rate - ( 10 * int(day_pass / 5.0) )),"sand")
 		
 	_resource_spawn(basic_stone_scene, world_setting.stone_spawn_rate,"stone")
 	

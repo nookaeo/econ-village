@@ -222,8 +222,8 @@ func set_energy() -> void:
 	active_energy = max_active_energy
 	
 func count_gather_resource(item_id :Enums.ItemId, amount :int) -> void:
-	if amount <= 0:
-		return
+#	if amount <= 0:
+#		return
 		
 	if not gather_count.has(item_id):
 		gather_count[item_id] = 0

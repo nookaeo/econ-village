@@ -9,7 +9,7 @@
 [sub_resource type="LabelSettings" id="LabelSettings_aflnk"]
 font_size = 8
 
-[node name="BaseHouse" type="Node2D" unique_id=1115710553]
+[node name="BaseHouse" type="Node2D" unique_id=1115710553 groups=["House"]]
 script = ExtResource("1_u17db")
 house_level_1 = ExtResource("2_aflnk")
 house_level_2 = ExtResource("3_wdigm")
