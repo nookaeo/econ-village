@@ -21,6 +21,9 @@ var fixed: bool
 ## Callable to overwrite the label generation.
 var labels_function: Callable
 
+# axis size used when all values in from_values() call are equal
+var epsilon = 0.00001
+
 var _tick_count: int = -1
 
 var _string_values: Array
@@ -49,17 +52,19 @@ static func from_values(value_arrays: Array, smooth_domain: bool) -> ChartAxisDo
 
 	var min_max: Dictionary = ECUtilities._find_min_max(value_arrays)
 	if not smooth_domain:
-		domain.lb = min(0.0, min_max.min)
+		domain.lb = min_max.min
 		domain.ub = min_max.max
 		domain.has_decimals = ECUtilities._has_decimals(value_arrays)
 		domain.is_discrete = false
 		domain.fixed = false
 	else:
-		domain.lb = ECUtilities._round_min(min(0.0, min_max.min))
+		domain.lb = ECUtilities._round_min(min_max.min)
 		domain.ub = ECUtilities._round_max(min_max.max)
 		domain.has_decimals = ECUtilities._has_decimals(value_arrays)
 		domain.is_discrete = false
 		domain.fixed = false
+	if domain.lb == domain.ub:
+		domain.ub += domain.epsilon
 
 	return domain
 
@@ -71,7 +76,7 @@ func set_tick_count(tick_count: int) -> void:
 
 func get_tick_labels() -> PackedStringArray:
 	if !labels_function.is_null():
-		return range(_tick_count).map(func(i) -> String:
+		return range(_tick_count + 1).map(func(i) -> String:
 			var value = lerp(lb, ub, float(i) / float(_tick_count))
 			return labels_function.call(value)
 		)
@@ -79,7 +84,7 @@ func get_tick_labels() -> PackedStringArray:
 	if is_discrete:
 		return _string_values
 
-	return range(_tick_count).map(func(i) -> String:
+	return range(_tick_count + 1).map(func(i) -> String:
 		var value = lerp(lb, ub, float(i) / float(_tick_count))
 		return ECUtilities._format_value(value, false)
 	)

@@ -4,6 +4,8 @@ class_name FunctionTypeLabel
 var type: int
 var marker: int
 var color: Color
+var icon: Texture2D
+
 var indicator_visible: bool:
 	get:
 		return indicator_visible
@@ -15,6 +17,12 @@ func _draw() -> void:
 	if !indicator_visible:
 		return
 
+	if icon == null:
+		_draw_function_and_marker()
+	else:
+		_draw_icon()
+
+func _draw_function_and_marker() -> void:
 	var center: Vector2 = get_rect().get_center()
 
 	match self.type:
@@ -33,7 +41,7 @@ func _draw() -> void:
 					Vector2(get_rect().end.x, get_rect().end.y / 2)
 				),
 				color_light,
-				3
+				true
 			)
 			draw_line(
 				Vector2(get_rect().position.x, center.y),
@@ -45,7 +53,7 @@ func _draw() -> void:
 			draw_rect(
 				Rect2(center - (Vector2.ONE * 3), (Vector2.ONE * 3 * 2)),
 				color,
-				1.0
+				true
 			)
 		Function.Type.BAR:
 			draw_rect(
@@ -54,8 +62,12 @@ func _draw() -> void:
 					Vector2(get_rect().end.x, get_rect().end.y)
 				),
 				color,
-				3
+				true
 			)
+		Function.Type.RADAR:
+			var r := minf(get_rect().size.x, get_rect().size.y) * 0.45
+			draw_circle(center, r, Color(color.r, color.g, color.b, 0.35))
+			draw_arc(center, r, 0.0, TAU, 24, color, 2.0)
 		Function.Type.SCATTER, _:
 			pass
 
@@ -65,7 +77,8 @@ func _draw() -> void:
 		Function.Marker.SQUARE:
 			draw_rect(
 				Rect2(center - (Vector2.ONE * 3), (Vector2.ONE * 3 * 2)), 
-				color, 1.0
+				color,
+				true
 			)
 		Function.Marker.TRIANGLE:
 			draw_colored_polygon(
@@ -88,3 +101,6 @@ func _draw() -> void:
 			)
 		Function.Marker.CIRCLE, _:
 			draw_circle(center, 3, color)
+
+func _draw_icon() -> void:
+	draw_texture_rect(icon, get_rect(), false, color)

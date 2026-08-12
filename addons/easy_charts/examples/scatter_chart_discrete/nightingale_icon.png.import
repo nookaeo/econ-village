@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://n6e0ib1c2l6n"
-path="res://.godot/imported/linechart.svg-922834f0462a2c88be644081c47c63ad.ctex"
+uid="uid://b5fs75h2ba3pj"
+path="res://.godot/imported/nightingale_icon.png-e915ab1d6f9a7b0e49b36feeb927ab05.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/easy_charts/utilities/icons/linechart.svg"
-dest_files=["res://.godot/imported/linechart.svg-922834f0462a2c88be644081c47c63ad.ctex"]
+source_file="res://addons/easy_charts/examples/scatter_chart_discrete/nightingale_icon.png"
+dest_files=["res://.godot/imported/nightingale_icon.png-e915ab1d6f9a7b0e49b36feeb927ab05.ctex"]
 
 [params]
 
@@ -38,6 +38,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false

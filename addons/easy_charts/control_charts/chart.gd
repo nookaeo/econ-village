@@ -30,7 +30,7 @@ func plot(functions: Array[Function], properties: ChartProperties = ChartPropert
 	self.chart_properties = properties
 
 	# If user does not set a theme, generate a Theme from chart properties.
-	theme = _get_theme_from_properties(chart_properties)
+	_init_theme(self.chart_properties)
 
 	_canvas.prepare_canvas(self.chart_properties)
 	plot_box.chart_properties = self.chart_properties
@@ -65,7 +65,7 @@ func load_functions(functions: Array[Function]) -> void:
 			Function.Type.PIE:
 				for i in function.__x.size():
 					var interp_color: Color = function.get_gradient().sample(float(i) / float(function.__x.size()))
-					function_legend.add_label(function.get_type(), interp_color, Function.Marker.NONE, function.__y[i])
+					function_legend.add_label(function.get_type(), interp_color, function.__y[i])
 			_:
 				function_legend.add_function(function)
 
@@ -84,6 +84,16 @@ func are_x_tick_labels_centered() -> bool:
 	return get_functions_by_type(Function.Type.BAR).size() > 1 && \
 			x_domain.is_discrete
 
+## Returns the slice of data_array that should be used for domain computation.
+## When max_samples > 0, limits to the last max_samples values. Additionally,
+## when new data has been added via add_point() (detected by comparing size to
+## function._initial_size), the slice starts from _initial_size to exclude initial
+## data from the domain. This prevents the axis range from extending while the
+## initial data is still in the sliding window.
+func _get_domain_slice(data_array: Array, function_index: int) -> Array:
+	var standard_lower: int = max(0, data_array.size() - chart_properties.max_samples)
+	return data_array.slice(standard_lower, data_array.size())
+
 func _draw() -> void:
 	if (x.size() == 0) or (y.size() == 0) or (x.size() == 1 and x[0].is_empty()) or (y.size() == 1 and y[0].is_empty()):
 		printerr("Cannot plot an empty function!")
@@ -94,29 +104,32 @@ func _draw() -> void:
 
 	# GridBox
 	if not is_x_fixed or not is_y_fixed :
+		var _x: Array = x
+		var _y: Array = y
 		if chart_properties.max_samples > 0 :
-			var _x: Array = []
-			var _y: Array = []
+			_x = []
+			_y = []
 
 			_x.resize(x.size())
 			_y.resize(y.size())
 
 			for i in x.size():
 				if not is_x_fixed:
-					_x[i] = x[i].slice(max(0, x[i].size() - chart_properties.max_samples), x[i].size())
+					_x[i] = _get_domain_slice(x[i], i)
 				if not is_y_fixed:
-					_y[i] = y[i].slice(max(0, y[i].size() - chart_properties.max_samples), y[i].size())
+					_y[i] = _get_domain_slice(y[i], i)
 
-			if not is_x_fixed:
-				x_domain = ChartAxisDomain.from_values(_x, chart_properties.smooth_domain)
-			if not is_y_fixed:
-				y_domain = ChartAxisDomain.from_values(_y, chart_properties.smooth_domain)
-		else:
-			if not is_x_fixed:
-				x_domain = ChartAxisDomain.from_values(x, chart_properties.smooth_domain)
-			if not is_y_fixed:
-				y_domain = ChartAxisDomain.from_values(y, chart_properties.smooth_domain)
-	
+		# Ensure that zero is available on the y-axis in case of we have at least one
+		# bar chart function. This is a dirty hack to ensure that bars are not drawn below
+		# the x-axis / x-axis tick labels.
+		if get_functions_by_type(Function.Type.BAR).size() > 0:
+			_y.append([0])
+
+		if not is_x_fixed:
+			x_domain = ChartAxisDomain.from_values(_x, chart_properties.smooth_domain)
+		if not is_y_fixed:
+			y_domain = ChartAxisDomain.from_values(_y, chart_properties.smooth_domain)
+
 	if !x_domain.is_discrete:
 		x_domain.set_tick_count(chart_properties.x_scale)
 
@@ -194,8 +207,8 @@ func _show_tooltip(point: Point, function: Function, options: Dictionary = {}) -
 	var y_value: String = y_domain.get_tick_label(point.value.y, y_labels_function)
 	var color: Color = function.get_color() if function.get_type() != Function.Type.PIE \
 		else function.get_gradient().sample(options.interpolation_index)
+	_tooltip.update_values(x_value, y_value, function, color)
 	_tooltip.show()
-	_tooltip.update_values(x_value, y_value, function.name, color)
 	_tooltip.update_position(point.position)
 	_function_of_tooltip = function
 
@@ -209,8 +222,56 @@ func _on_function_legend_function_clicked(function: Function) -> void:
 	function.toggle_visibility()
 	queue_redraw()
 
-func _get_theme_from_properties(chart_properties: ChartProperties) -> Theme:
-	var theme = Theme.new()
+# The _init_theme() method ensures that all styling properties are
+# available via Godot's theming engine. Note: This also handles theming
+# via ChartProperties (which is deprecated).
+func _init_theme(chart_properties: ChartProperties) -> void:
+	# We need to assign a theme, so that we can add missing theme properties.
+	# If a theme exists on the node, missing properties will be added.
+	# This allows users to partially overwrite the default theme (e.g. only the label color
+	# with the rest of the styling being derived from the default style).
+	if theme == null:
+		theme = Theme.new()
+
+	_warn_about_deprecated_chart_properties_styling_if_required()
+
+	_init_missing_theming_properties_with_defaults(chart_properties)
+
+# Push a warning in case that users use ChartProperties for styling.
+# This is done by detecting if styling related ChartProperties differ
+# from their default values.
+func _warn_about_deprecated_chart_properties_styling_if_required():
+	var default_theme: Theme = load("res://addons/easy_charts/control_charts/default_chart_theme.tres")
+	var is_color_different = func (col1, col2): return col1.to_html() != col2.to_html()
+	
+	var warning_required: bool = is_color_different.call(default_theme.get_color("origin_color", "Chart"), chart_properties.colors.origin) \
+		|| is_color_different.call(default_theme.get_color("text_color", "Chart"), chart_properties.colors.text) \
+		|| is_color_different.call(default_theme.get_color("tick_color", "Chart"), chart_properties.colors.ticks) \
+		|| is_color_different.call(default_theme.get_color("tick_grid_line_color", "Chart"), chart_properties.colors.grid)
+
+	var default_chart_area: StyleBox = default_theme.get_stylebox("chart_area", "Chart")
+	warning_required = warning_required \
+		|| is_color_different.call(default_chart_area.bg_color, chart_properties.colors.frame) \
+		|| default_chart_area.draw_center != chart_properties.draw_frame
+	
+	var default_plot_area: StyleBox = default_theme.get_stylebox("plot_area", "Chart")
+	warning_required = warning_required \
+		|| is_color_different.call(default_plot_area.bg_color, chart_properties.colors.background) \
+		|| is_color_different.call(default_plot_area.border_color, chart_properties.colors.bounding_box) \
+		|| default_plot_area.draw_center != chart_properties.draw_background \
+		|| chart_properties.draw_bounding_box == false
+
+	if warning_required:
+		push_warning("It seems that you are styling Charts with ChartProperties." +
+		" This is deprecated and will be removed in future. " +
+		" Please use a Theme. Refer to: https://www.nicolosantilio.it/godot-engine.easy-charts/theming/")
+
+# Assign missing styling properties to the theme of the Chart node.
+#
+# Note: This function right now uses the ChartProperties to assign missing
+# theme properties. In future, when styling related ChartProperties are removed
+# this should be changed to use the values from the default_chart_theme.tres.
+func _init_missing_theming_properties_with_defaults(chart_properties: ChartProperties):
 	theme.default_font = chart_properties.font
 	
 	if !has_theme_color("origin_color", "Chart"):
@@ -239,5 +300,3 @@ func _get_theme_from_properties(chart_properties: ChartProperties) -> Theme:
 		plot_area.border_color = chart_properties.colors.bounding_box
 		plot_area.set_border_width_all(1 if chart_properties.draw_bounding_box else 0)
 		theme.set_stylebox("plot_area", "Chart", plot_area)
-
-	return theme

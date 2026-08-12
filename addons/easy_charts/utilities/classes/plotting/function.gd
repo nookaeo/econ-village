@@ -8,7 +8,8 @@ enum Type {
 	LINE,
 	AREA,
 	PIE,
-	BAR
+	BAR,
+	RADAR
 }
 
 enum Interpolation {
@@ -32,9 +33,15 @@ var __y: Array
 var name: String
 var props: Dictionary = {}
 
+# Tracks the number of data points present at Function creation time.
+# Used to distinguish initial data from points added via add_point()
+# so that the chart's sliding-window domain only covers newly-added data.
+var _initial_size: int = 0
+
 func _init(x: Array, y: Array, name: String = "", props: Dictionary = {}) -> void:
 	self.__x = x.duplicate()
 	self.__y = y.duplicate()
+	self._initial_size = self.__x.size()
 	self.name = name
 	if not props.is_empty() and props != null:
 		self.props = props
@@ -43,6 +50,8 @@ func get_point(index: int) -> Array:
 	return [self.__x[index], self.__y[index]]
 
 func add_point(x: float, y: Variant) -> void:
+	if self.__x.is_empty() and self.__y.is_empty():
+		self._initial_size = 0
 	self.__x.append(x)
 	self.__y.append(y)
 
@@ -85,6 +94,9 @@ func get_line_width() -> float:
 
 func get_visibility() -> bool:
 	return props.get("visible", true)
+
+func get_icon() -> Texture2D:
+	return props.get("icon", null)
 
 func set_visibility(visible: bool) -> void:
 	if get_visibility() == visible:
