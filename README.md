@@ -2,7 +2,11 @@
 
 A small Godot-based economic simulation that models a village of agents, buildings, resources and time. Designed to be opened and run in the Godot editor for exploration, experimentation, and educational demonstrations of emergent economic behavior.
 
-<img width="1234" height="693" alt="image" src="https://github.com/user-attachments/assets/2e1a272a-ee05-43f9-91a4-f94aaccd0c73" />
+<img width="1240" height="695" alt="Screenshot_20260812_073150" src="https://github.com/user-attachments/assets/54d22d8c-846a-49ac-b2a0-444ad1a6ee9b" />
+
+
+<img width="1267" height="707" alt="Screenshot_20260812_070247" src="https://github.com/user-attachments/assets/09824748-0802-4721-95e8-96d2c1785cc8" />
+
 
 ## Features
 - Tile-based world with resource nodes and buildings
