@@ -60,11 +60,22 @@ func _update_agents_strategy() -> void:
 	
 func _day_pass() -> void:
 	_stats_update()
+	if fish_price.count_points() > 180:
+		fish_price.pop_front_point()
+		wood_price.pop_front_point()
+		fish_amount.pop_front_point()
+		wood_amount.pop_front_point()
+		
+	
+	if cowrie_data.count_points() > 30:
+		cowrie_data.pop_front_point()
 	if market :
 		fish_price.add_point(day,float(market.get_information()[Enums.ItemId.Fish]["LastPrice"]))
 		wood_price.add_point(day,float(market.get_information()[Enums.ItemId.Wood]["LastPrice"]))
 		fish_amount.add_point(day,float(market.get_information()[Enums.ItemId.Fish]["LeftOver"]))
 		wood_amount.add_point(day,float(market.get_information()[Enums.ItemId.Wood]["LeftOver"]))
+		
+	
 		
 	cowrie_data.add_point(day,float(cowrie_day))
 	chart.queue_redraw()
@@ -159,7 +170,7 @@ func _chart_init() -> void:
 	chart_properties.y_label = ""
 	chart_properties.title = "Price Chart"
 	chart_properties.show_legend = true
-	chart_properties.max_samples = 1440
+	chart_properties.max_samples = 720
 	chart_properties.draw_origin = false
 	
 	var goods_amount_chart_properties := ChartProperties.new()
@@ -167,15 +178,15 @@ func _chart_init() -> void:
 	goods_amount_chart_properties.y_label = ""
 	goods_amount_chart_properties.title = "Amount Chart"
 	goods_amount_chart_properties.show_legend = true
-	goods_amount_chart_properties.max_samples = 1440
+	goods_amount_chart_properties.max_samples = 720
 	goods_amount_chart_properties.draw_origin = false
 	
 	var chart_properties_cowrie := ChartProperties.new()
 	chart_properties_cowrie.x_label = ""
 	chart_properties_cowrie.y_label = ""
 	chart_properties_cowrie.title = "Cowrie Chart"
-	chart_properties_cowrie.show_legend = true
-	chart_properties_cowrie.max_samples = 1440
+	chart_properties_cowrie.show_legend = false
+	chart_properties_cowrie.max_samples = 720
 	chart_properties_cowrie.draw_origin = false
 	
 	chart.plot([fish_price,wood_price], chart_properties)
