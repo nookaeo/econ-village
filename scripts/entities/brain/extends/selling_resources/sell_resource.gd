@@ -39,5 +39,5 @@ func tick(_actor: Node, _blackboard :Node) -> Status:
 		var sell_price :int = max(1,int(last_price * (1.0 / ( 1.0 + sensitivity * (margin - base_margin)))))
 		market.create_sell_order(agent, shipping_resource,agent.inventory[shipping_resource], sell_price)
 	elif last_price >= 1 and market_sell_amount == 0:
-		market.create_sell_order(agent, shipping_resource,agent.inventory[shipping_resource],int(ceilf(last_price * (1 + 0.1))))
+		market.create_sell_order(agent, shipping_resource,agent.inventory[shipping_resource],int(ceilf(last_price * (1 + 0.2))))
 	return Status.SUCCESS

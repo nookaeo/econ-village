@@ -8,7 +8,7 @@ func tick(_actor: Node, _blackboard :Node) -> Status:
 	var resource_consumed_worth :float = 0
 	var best_resource :Enums.ItemId
 	var price_change_sensitivity :float = 0.5
-	var base_magin :float = 0.2
+	var base_magin :float = 0.1
 	var margin :float = 0.0
 	
 	# and agent.gather_statistic[resource_id] >= household_resource_consumed[resource_id] * household_resource_consumed.size() 
@@ -39,7 +39,7 @@ func tick(_actor: Node, _blackboard :Node) -> Status:
 			
 		elif resource_id != Enums.ItemId.Shells and agent.home.market_data[resource_id]["SellAmount"] == 0 and agent.home.market_data[resource_id]["LastPrice"] == 0 : 
 			if agent.gather_statistic.has(Enums.ItemId.Shells) and agent.gather_statistic.has(resource_id):
-				resource_price = int((float(Math.find_median(agent.gather_statistic[Enums.ItemId.Shells])) / float(Math.find_median(agent.gather_statistic[resource_id])))*2)
+				resource_price = int((float(Math.find_median(agent.gather_statistic[Enums.ItemId.Shells])) / float(Math.find_median(agent.gather_statistic[resource_id]))) * 1.1)
 			else :
 				resource_price = 1
 				
