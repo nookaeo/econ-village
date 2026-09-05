@@ -69,6 +69,7 @@ func _day_pass() -> void:
 	
 	if cowrie_data.count_points() > 30:
 		cowrie_data.pop_front_point()
+		
 	if market :
 		fish_price.add_point(day,float(market.get_information()[Enums.ItemId.Fish]["LastPrice"]))
 		wood_price.add_point(day,float(market.get_information()[Enums.ItemId.Wood]["LastPrice"]))
