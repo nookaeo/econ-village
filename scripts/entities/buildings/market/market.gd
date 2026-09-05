@@ -144,9 +144,11 @@ func get_information() -> Dictionary:
 		else :
 			information[item].merge({"Cheapest":0})
 			information[item].merge({"LeftOver":0})
+			
 		if last_trade_price.has(item):
 			information[item].merge({"LastPrice":Math.find_median(last_trade_price[item])})
 		else :
+			
 			information[item].merge({"LastPrice":0})
 		if left_over_order.has(item):
 			information[item].merge({"SellAmount":left_over_order[item]})
@@ -170,8 +172,8 @@ func _find_total_left_over() -> void:
 	var orders :Dictionary = sort_sell_order.duplicate(true)
 	left_over_order.clear()
 	for item :Enums.ItemId in orders:
-		for price in sort_sell_order[item]:
-			for order in sort_sell_order[item][price]:
+		for price in orders[item]:
+			for order in orders[item][price]:
 				if not left_over_order.has(item):
 					left_over_order[item] = 0
 				left_over_order[item] += sort_sell_order[item][price][order]["amount"]
