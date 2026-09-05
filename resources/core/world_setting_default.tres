@@ -5,7 +5,7 @@
 [resource]
 script = ExtResource("1_dpie4")
 villagent_spawn = 100
-resources_crowd_rate = 0.1
+resources_crowd_rate = 0.3
 cowrie_spawn_rate = 100
 tree_spawn_rate = 100
 stone_spawn_rate = 5

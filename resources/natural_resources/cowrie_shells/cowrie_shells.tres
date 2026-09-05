@@ -5,7 +5,7 @@
 [resource]
 script = ExtResource("1_l51uh")
 name = "Shell"
-drop_amount = 10000
+drop_amount = 100000
 gather_time = 0.5
 gather_hardness = 6.0
 metadata/_custom_type_script = "uid://6ongvi1rrac1"
